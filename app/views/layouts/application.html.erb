@@ -5,24 +5,19 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+</script>
+
 </head>
+
 <body>
+  <ul class="tabs">
+    <li id="home"><a href="/">Home</a></li>
+    <li id="users"><a href="/users"><%= t("Users") %></a></li>
+   </ul>
 
   <div class="container-fluid">
-    <ul class="tabs">
-    <li class="active"><a href="/">Home</a></li>
-    <li><a href="/users">Users</a></li>
-  </ul>
-
-  <div class="sidebar">
-
+    <div class="sidebar"></div>
+    <div class="content"><%= yield %></div>
   </div>
-
-  <div class="content">
-    <%= yield %>
-  </div>
-
-</div>
-
 </body>
 </html>

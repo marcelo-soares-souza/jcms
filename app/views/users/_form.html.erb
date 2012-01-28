@@ -1,17 +1,16 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
-    <div class="alert-message alert">
+      <div class="alert-message alert">
       <h2><%= pluralize(@user.errors.count, "Erro") %></h2>
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li><strong><%= msg %></strong></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
   <fieldset>
-
     <div class="clearfix">
       <%= f.label :firstname %>
       <div class="input">
@@ -62,5 +61,4 @@
     </div>
 
   </fieldset>
-
 <% end %>

@@ -198,6 +198,10 @@ pt-BR:
       long: ! '%A, %d de %B de %Y, %H:%M h'
       short: ! '%d/%m, %H:%M h'
     pm: ''
+
+# jCMS
+  true: "Sim"
+  false: "Não"
   helpers:
     submit:
       create: 'Criar %{model}'
@@ -216,4 +220,12 @@ pt-BR:
   activerecord:
     models:
       user: 'Usuário'
-
+  firstname: 'Primeiro Nome'
+  lastname: 'Último Nome'
+  email: 'E-Mail'
+  password: 'Senha'
+  created: 'Criado em'
+  status: 'Situação'
+  List: 'Listar'
+  Create: 'Criar'
+  Users: 'Usuários'

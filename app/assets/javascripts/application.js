@@ -110,10 +110,10 @@ $.extend( $.fn.dataTableExt.oPagination, {
     }
       }
     }
-} );
+});
 
-/* Table initialisation */
 $(document).ready(function() {
+
   $('table').dataTable( {
     "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>",
     "sPaginationType": "bootstrap",
@@ -125,7 +125,11 @@ $(document).ready(function() {
       "sInfoFiltered": "(de um total de _MAX_ itens)",
       "oPaginate": {"sNext": "Próxima","sPrevious": "Anterior"}
     }
-
   });
+
+  $(".alert-message").alert('close');
+
 });
+
+
 

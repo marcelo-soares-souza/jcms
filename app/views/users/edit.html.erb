@@ -1,6 +1,11 @@
-<h1>Editing user</h1>
+<ul class="tabs" data-tabs="tabs">
+  <li><a href="/users">List</a></li>
+  <li><a href="/users#create">Create</a></li>
+</ul>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="tab-content">
+  <div class="active tab-pane" id="list">
+    <%= render 'list' %>
+    <%= render 'form' %>
+  </div>
+</div>

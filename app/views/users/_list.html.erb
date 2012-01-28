@@ -1,0 +1,27 @@
+<table class="bordered-table zebra-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t("firstname")%></th>
+      <th><%= t("lastname") %></th>
+      <th><%= t("email") %></th>
+      <th><%= t("password") %></th>
+      <th><%= t("created") %></th>
+      <th><%= t("status") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.id, edit_user_path(user) %>
+      <td><%= link_to user.firstname, edit_user_path(user) %>
+      <td><%= user.lastname %></td>
+      <td><%= user.email %></td>
+      <td><%= user.password %></td>
+      <td><%= user.created %></td>
+      <td><%= user.status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

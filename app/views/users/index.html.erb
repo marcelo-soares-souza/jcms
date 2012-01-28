@@ -1,32 +1,20 @@
-<h1>Listing users</h1>
+<ul class="tabs" data-tabs="tabs">
+  <li><a href="#list"><%= t("List") %></a></li>
+  <li><a href="#create"><%= t("Create") %></a></li>
+</ul>
 
-<table class="bordered-table zebra-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Email</th>
-      <th>Password</th>
-      <th>Created</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-    <tr>
-      <td><%= link_to user.id, edit_user_path(user) %>
-      <td><%= link_to user.firstname, edit_user_path(user) %>
-      <td><%= user.lastname %></td>
-      <td><%= user.email %></td>
-      <td><%= user.password %></td>
-      <td><%= user.created %></td>
-      <td><%= user.status %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="tab-content">
+  <div class="active tab-pane" id="list">
+    <%= render 'list' %>
+  </div>
+  <div class="tab-pane" id="create">
+    <%= render 'form' %>
+  </div>
+</div>
 
-<br />
-
-<%= link_to 'New User', new_user_path %>
+<% if !notice.nil? %>
+<div class="alert-message success" data-alert>
+  <a class="close" href="#">×</a>
+  <p><%= notice %></p>
+</div>
+<% end %>
