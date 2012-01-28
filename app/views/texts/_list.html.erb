@@ -1,0 +1,25 @@
+<table class="bordered-table zebra-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t("title")%></th>
+      <th><%= t("abstract") %></th>
+      <th><%= t("publish") %></th>
+      <th><%= t("firstpage") %></th>
+      <th><%= t("license") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @texts.each do |text| %>
+    <tr>
+      <td><%= link_to text.id, edit_text_path(text) %>
+      <td><%= link_to text.title, edit_text_path(text) %>
+      <td><%= text.abstract %></td>
+      <td><%= text.publish %></td>
+      <td><%= text.firstpage %></td>
+      <td><%= text.license.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

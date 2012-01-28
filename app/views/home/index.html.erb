@@ -1,1 +1,15 @@
-<h1>jCMS - juntaDados Content Managament System</h1>
+  <h1>jCMS - juntaDados Content Managament System</h1>
+  <% if @texts.size > 0 %>  
+    <div class="row">
+      <% @texts.each do |text| %>
+        <div class="span6">
+          <h3><%= link_to text.title, text %></h3>
+          <p><%= text.abstract %></p>
+          <p><%= link_to 'Leia Mais', text, :class=>"btn success" %></p>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+  <b><%= t('No Items Registered') %></b>
+  <% end %>
+

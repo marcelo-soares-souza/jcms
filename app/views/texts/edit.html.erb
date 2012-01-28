@@ -1,0 +1,12 @@
+<ul class="tabs" data-tabs="tabs">
+  <li><a href="/texts#list"><%= t("List") %></a></li>
+  <li><a href="/texts/new#create"><%= t("Create") %></a></li>
+  <li class="active"><a href="/texts/<%= @text.id %>/edit#edit"><%= @text.title %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane" id="edit">
+    <%= render 'list' %>
+    <%= render 'form' %>
+  </div>
+</div>

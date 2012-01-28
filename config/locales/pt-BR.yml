@@ -220,10 +220,18 @@ pt-BR:
         name: 'Nome'
         description: 'Descrição'
         url: 'URL'
+      text:
+        title: 'Título'
+        abstract: 'Resumo'
+        body: 'Corpo'
+        publish: 'Publicar'
+        firstpage: 'Visível na primeira página'
+        license: 'Licença'
   activerecord:
     models:
       user: 'Usuário'
       license: 'Licença'
+      text: 'Texto'
     attributes: 
       user: 
         firstname: 'Primeiro Nome'
@@ -235,10 +243,18 @@ pt-BR:
         name: 'Nome'
         description: 'Descrição'
         url: 'URL'
+      text:
+        title: 'Título'
+        abstract: 'Resumo'
+        body: 'Corpo'
+        publish: 'Publicar'
+        firstpage: 'Visível na primeira página'
+        license: 'Licença'
   'Successfully created': 'Foi criado com sucesso' 
   'Successfully updated': 'Foi atualizado com sucesso'
   'Successfully deleted': 'Foi apagado com sucesso'
   'Are you sure?': 'Tem certeza que deseja excluir?'
+  'No Items Registered': 'Nenhum item registrado'
   Error: 'Erro'
   Delete: 'Apagar'
   List: 'Listar'
@@ -259,3 +275,14 @@ pt-BR:
   url: 'URL'
   License: 'Licença'
   Licenses: 'Licenças'
+
+# text
+  title: 'Título'
+  abstract: 'Resumo'
+  body: 'Corpo'
+  publish: 'Publicar'
+  firstpage: 'Visível na primeira página'
+  license: 'Licença'
+  Text: 'Texto'
+  Texts: 'Textos'
+
