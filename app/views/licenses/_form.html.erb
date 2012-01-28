@@ -1,4 +1,4 @@
-<%= form_for(@license) do |f| %>
+<%= form_for @license, :html => { :class => "form-stacked" } do |f| %>
   <% if @license.errors.any? %>
       <div class="alert-message alert">
       <h2><%= pluralize(@license.errors.count, t('Error')) %></h2>
@@ -34,7 +34,15 @@
     </div>
 
     <div class="actions">
-      <%= f.submit 'class' => 'btn primary' %>
+      <%
+        if params[:action] == 'edit'
+          type = 'btn success'
+        else
+          type = 'btn primary'
+        end
+      %>
+
+      <%= f.submit 'class' => type %>
       <% if params[:action] == 'edit' %>
         <%= link_to_if (params[:action] == 'edit', t('Delete'), @license, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete) %>
       <% end %>
