@@ -1,5 +1,6 @@
 Jcms::Application.routes.draw do
   resources :users
+  resources :licenses
 
   get "home/index"
 

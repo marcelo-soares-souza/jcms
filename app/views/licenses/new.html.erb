@@ -1,0 +1,10 @@
+<ul class="tabs" data-tabs="tabs">
+  <li><a href="/licenses#list"><%= t("List") %></a></li>
+  <li class="active"><a href="/licenses/new#create"><%= t("Create") %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane" id="create">
+    <%= render 'form' %>
+  </div>
+</div>

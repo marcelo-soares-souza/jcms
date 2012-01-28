@@ -1,0 +1,21 @@
+<table class="bordered-table zebra-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t("name")%></th>
+      <th><%= t("description") %></th>
+      <th><%= t("url") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @licenses.each do |license| %>
+    <tr>
+      <td><%= link_to license.id, edit_license_path(license) %>
+      <td><%= link_to license.name, edit_license_path(license) %>
+      <td><%= license.description %></td>
+      <td><a href="<%= license.url %>" target="_blank"><%= license.url %></a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

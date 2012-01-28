@@ -22,9 +22,10 @@ $(document).ready(function() {
     "sPaginationType": "bootstrap",
     "oLanguage": {
       "sLengthMenu": "_MENU_ registros por página",
-      "sSearch": "Buscar: ",
+      "sSearch": "Buscar:" ,
       "sInfo": "Mostrando _START_ até _END_ de _TOTAL_ itens",
       "sInfoEmpty": "Mostrando 0 itens",
+      "sEmptyTable": "Nenhuma item cadastrado",
       "sInfoFiltered": "(de um total de _MAX_ itens)",
       "oPaginate": {"sNext": "Próxima","sPrevious": "Anterior"}
     }
@@ -33,6 +34,9 @@ $(document).ready(function() {
   $(".alert-message").alert('close');
 
 });
+
+//
+// Integrate Boostrap with DataTables
 
 /* Default class modification */
 $.extend( $.fn.dataTableExt.oStdClasses, {
