@@ -2,4 +2,22 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      create: 'Create %{model}'
+      update: 'Update %{model}'
+      submit: 'Save %{model}'
+    select:
+      prompt: 'Please select'
+    label:
+      user:
+        firstname: 'First Name'
+        lastname: 'Last Name'
+        email: 'E-Mail'
+        password: 'Password'
+        created: 'Created'
+        status: 'Status'
+  activerecord:
+    models:
+      user: 'User'
+
