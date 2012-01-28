@@ -1,10 +1,11 @@
 <ul class="tabs" data-tabs="tabs">
-  <li><a href="/users">List</a></li>
-  <li><a href="/users#create">Create</a></li>
+  <li><a href="/users#list"><%= t("List") %></a></li>
+  <li><a href="/users/new#create"><%= t("Create") %></a></li>
+  <li class="active"><a href="/users/<%= @user.id %>/edit#edit"><%= @user.firstname + ' ' +@user.lastname%></a></li>
 </ul>
 
 <div class="tab-content">
-  <div class="active tab-pane" id="list">
+  <div class="active tab-pane" id="edit">
     <%= render 'list' %>
     <%= render 'form' %>
   </div>

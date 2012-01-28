@@ -15,7 +15,6 @@ en:
         lastname: 'Last Name'
         email: 'E-Mail'
         password: 'Password'
-        created: 'Created'
         status: 'Status'
   activerecord:
     models:

@@ -1,35 +1,12 @@
-<p id="notice"><%= notice %></p>
+<ul class="tabs" data-tabs="tabs">
+  <li><a href="/users#list"><%= t("List") %></a></li>
+  <li><a href="/users/new#create"><%= t("Create") %></a></li>
+  <li class="active"><a href="/users/<%= @user.id %>/edit#edit"><%= @user.firstname + ' ' +@user.lastname%></a></li>
+</ul>
 
-<p>
-  <b>Firstname:</b>
-  <%= @user.firstname %>
-</p>
-
-<p>
-  <b>Lastname:</b>
-  <%= @user.lastname %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Password:</b>
-  <%= @user.password %>
-</p>
-
-<p>
-  <b>Created:</b>
-  <%= @user.created %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @user.status %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="tab-content">
+  <div class="active tab-pane" id="edit">
+    <%= render 'list' %>
+    <%= render 'form' %>
+  </div>
+</div>

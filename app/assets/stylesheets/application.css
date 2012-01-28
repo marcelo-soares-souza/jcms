@@ -13,31 +13,31 @@
 */
 
 div.dataTables_length label {
-	width: 460px;
-	float: left;
-	text-align: left;
+  width: 460px;
+  float: left;
+  text-align: left;
 }
 
 div.dataTables_length select {
-	width: 75px;
+  width: 75px;
 }
 
 div.dataTables_filter label {
-	float: right;
-	width: 460px;
-	padding-bottom: 16px;
+  float: right;
+  width: 460px;
+  padding-bottom: 16px;
 }
 
 div.dataTables_info {
-	padding-top: 8px;
+  padding-top: 8px;
 }
 
 div.dataTables_paginate {
-	float: right;
-	margin: 0;
+  float: right;
+  margin: 0;
 }
 
 table {
-	margin: 1em 0;
-	clear: both;
+  margin: 1em 0;
+  clear: both;
 }

@@ -1,5 +1,5 @@
 <ul class="tabs" data-tabs="tabs">
-  <li><a href="#list"><%= t("List") %></a></li>
+  <li class="active"><a href="#list"><%= t("List") %></a></li>
   <li><a href="#create"><%= t("Create") %></a></li>
 </ul>
 
@@ -15,6 +15,6 @@
 <% if !notice.nil? %>
 <div class="alert-message success" data-alert>
   <a class="close" href="#">×</a>
-  <p><%= notice %></p>
+  <p><%= t(notice) %></p>
 </div>
 <% end %>

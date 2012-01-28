@@ -15,6 +15,25 @@
 //= require jquery-ui
 //= require_tree .
 
+$(document).ready(function() {
+
+  $('table').dataTable( {
+    "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>",
+    "sPaginationType": "bootstrap",
+    "oLanguage": {
+      "sLengthMenu": "_MENU_ registros por página",
+      "sSearch": "Buscar: ",
+      "sInfo": "Mostrando _START_ até _END_ de _TOTAL_ itens",
+      "sInfoEmpty": "Mostrando 0 itens",
+      "sInfoFiltered": "(de um total de _MAX_ itens)",
+      "oPaginate": {"sNext": "Próxima","sPrevious": "Anterior"}
+    }
+  });
+
+  $(".alert-message").alert('close');
+
+});
+
 /* Default class modification */
 $.extend( $.fn.dataTableExt.oStdClasses, {
   "sSortAsc": "header headerSortDown",
@@ -37,15 +56,14 @@ $.fn.dataTableExt.oApi.fnPagingInfo = function ( oSettings )
 
 /* Bootstrap style pagination control */
 $.extend( $.fn.dataTableExt.oPagination, {
-    "bootstrap": {
-      "fnInit": function( oSettings, nPaging, fnDraw ) {
-    var oLang = oSettings.oLanguage.oPaginate;
-    var fnClickHandler = function ( e ) {
-      e.preventDefault();
-      if ( oSettings.oApi._fnPageChange(oSettings, e.data.action) ) {
-        fnDraw( oSettings );
-      }
-    };
+    "bootstrap": {"fnInit": function( oSettings, nPaging, fnDraw ) {
+                   var oLang = oSettings.oLanguage.oPaginate;
+                   var fnClickHandler = function ( e ) {
+                     e.preventDefault();
+                     if ( oSettings.oApi._fnPageChange(oSettings, e.data.action) ) {
+                       fnDraw( oSettings );
+                     }
+                 };
 
     $(nPaging).addClass('pagination').append(
       '<ul>'+
@@ -53,12 +71,13 @@ $.extend( $.fn.dataTableExt.oPagination, {
         '<li class="next disabled"><a href="#">'+oLang.sNext+' &rarr; </a></li>'+
       '</ul>'
     );
+
     var els = $('a', nPaging);
     $(els[0]).bind( 'click.DT', { action: "previous" }, fnClickHandler );
     $(els[1]).bind( 'click.DT', { action: "next" }, fnClickHandler );
-      },
+  },
 
-      "fnUpdate": function ( oSettings, fnDraw ) {
+  "fnUpdate": function ( oSettings, fnDraw ) {
     var iListLength = 5;
     var oPaging = oSettings.oInstance.fnPagingInfo();
     var an = oSettings.aanFeatures.p;
@@ -111,25 +130,3 @@ $.extend( $.fn.dataTableExt.oPagination, {
       }
     }
 });
-
-$(document).ready(function() {
-
-  $('table').dataTable( {
-    "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>",
-    "sPaginationType": "bootstrap",
-    "oLanguage": {
-      "sLengthMenu": "_MENU_ registros por página",
-      "sSearch": "Buscar: ",
-      "sInfo": "Mostrando _START_ até _END_ de _TOTAL_ itens",
-      "sInfoEmpty": "Mostrando 0 itens",
-      "sInfoFiltered": "(de um total de _MAX_ itens)",
-      "oPaginate": {"sNext": "Próxima","sPrevious": "Anterior"}
-    }
-  });
-
-  $(".alert-message").alert('close');
-
-});
-
-
-

@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
       <div class="alert-message alert">
-      <h2><%= pluralize(@user.errors.count, "Erro") %></h2>
+      <h2><%= pluralize(@user.errors.count, t('Error')) %></h2>
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><strong><%= msg %></strong></li>
@@ -11,6 +11,7 @@
   <% end %>
 
   <fieldset>
+
     <div class="clearfix">
       <%= f.label :firstname %>
       <div class="input">
@@ -40,13 +41,6 @@
     </div>
 
     <div class="clearfix">
-      <%= f.label :created %>
-      <div class="input">
-        <%= f.datetime_select :created %>
-      </div>
-    </div>
-
-    <div class="clearfix">
       <%= f.label :status %>
       <div class="input">
         <%= f.check_box :status %>
@@ -56,7 +50,7 @@
     <div class="actions">
       <%= f.submit 'class' => 'btn primary' %>
       <% if params[:action] == 'edit' %>
-      <%= link_to_if (params[:action] == 'edit', "Apagar", @user, :class => 'btn danger', :confirm => 'Tem certeza que deseja excluir?', :method => :delete) %>
+        <%= link_to_if (params[:action] == 'edit', t('Delete'), @user, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete) %>
       <% end %>
     </div>
 
