@@ -1,0 +1,12 @@
+<ul class="tabs" data-tabs="tabs">
+  <li><a href="/images#list"><%= t("List") %></a></li>
+  <li><a href="/images/new#create"><%= t("Create") %></a></li>
+  <li class="active"><a href="/images/<%= @image.id %>/edit#edit"><%= @image.title %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane" id="edit">
+    <%= render 'list' %>
+    <%= render 'form' %>
+  </div>
+</div>

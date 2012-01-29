@@ -10,7 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120128220542) do
+ActiveRecord::Schema.define(:version => 20120129124735) do
+
+  create_table "images", :force => true do |t|
+    t.string   "title"
+    t.string   "abstract"
+    t.string   "image_file_name"
+    t.boolean  "publish"
+    t.boolean  "firstpage"
+    t.integer  "license_id"
+    t.string   "image_content_type"
+    t.string   "image_file_size"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "images", ["license_id"], :name => "index_images_on_license_id"
 
   create_table "licenses", :force => true do |t|
     t.string   "name"

@@ -13,3 +13,4 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "paperclip", "~> 2.0"

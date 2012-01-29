@@ -1,0 +1,27 @@
+<table class="bordered-table zebra-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t("image")%></th>
+      <th><%= t("title")%></th>
+      <th><%= t("abstract") %></th>
+      <th><%= t("publish") %></th>
+      <th><%= t("firstpage") %></th>
+      <th><%= t("license") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @images.each do |image| %>
+    <tr>
+      <td><%= link_to image.id, edit_image_path(image) %></td>
+      <td><%= link_to (image_tag image.image.url(:medium)), edit_image_path(image) %></td>
+      <td><%= link_to image.title, edit_image_path(image) %></td>
+      <td><%= image.abstract %></td>
+      <td><%= image.publish %></td>
+      <td><%= image.firstpage %></td>
+      <td><%= image.license.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
