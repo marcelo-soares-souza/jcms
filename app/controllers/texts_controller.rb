@@ -49,9 +49,15 @@ class TextsController < ApplicationController
   def create
     @licenses = License.all
     @text = Text.new(params[:text])
+    @content = Content.new
 
     respond_to do |format|
       if @text.save
+        @content.text_id      = @text.id
+        @content.user_id      = current_user.id
+        @content.submittedby  = true
+        @content.save
+
         format.html { redirect_to texts_url, :notice => 'Successfully created' }
         format.json { render :json => @text, :status => :created, :location => @text }
       else

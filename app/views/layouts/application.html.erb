@@ -10,32 +10,18 @@
 </head>
 <body>
   <ul class="tabs">
-    <li id="home"><a href="/">Home</a></li>
-    <% if user_signed_in? %>
-      <li id="user"> <a href=""><%= current_user.firstname %></a></li>
-      <li id="users"><a href="/users"><%= t("Users") %></a></li>
-      <li id="licenses"><a href="/licenses"><%= t("Licenses") %></a></li>
-      <li id="texts"><a href="/texts"><%= t("Texts") %></a></li>
-      <li id="images"><a href="/images"><%= t("Images") %></a></li>
-      <li id="logout"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-    <% else %>
-      <li id="login"><%= link_to('Login', new_user_session_path)  %></li>
-   <% end %>
-   </ul>
+      <%= render 'layouts/options' %>
+  </ul>
 
   <div class="container-fluid">
     <div class="sidebar"></div>
-
     <div class="content">
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
+      <%= render 'layouts/alert' %>
       <%= yield %>
-
     </div>
 
     <footer>
-      <p>jCMS - juntaDados Content Managament System</p>
+      <%= render 'layouts/footer' %>
     </footer>
   </div>
 </body>

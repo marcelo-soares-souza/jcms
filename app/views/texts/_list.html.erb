@@ -7,6 +7,7 @@
       <th><%= t("publish") %></th>
       <th><%= t("firstpage") %></th>
       <th><%= t("license") %></th>
+      <th><%= t("Owner(s)") %></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,9 @@
       <td><%= text.publish %></td>
       <td><%= text.firstpage %></td>
       <td><%= text.license.name %></td>
+      <% text.users.each do |user| %>
+        <td><%= user.firstname %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

@@ -49,9 +49,15 @@ class ImagesController < ApplicationController
   def create
     @licenses = License.all
     @image = Image.create(params[:image])
+    @content = Content.new
 
     respond_to do |format|
       if @image.save
+        @content.image_id     = @image.id
+        @content.user_id      = current_user.id
+        @content.submittedby  = true
+        @content.save
+
         format.html { redirect_to images_url, :notice => 'Successfully created' }
         format.json { render :json => @image, :status => :created, :location => @image }
       else

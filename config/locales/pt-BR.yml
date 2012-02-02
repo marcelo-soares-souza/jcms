@@ -200,8 +200,16 @@ pt-BR:
     pm: ''
 
 # jCMS
+  "Login": "Logar"
+  "Logout": "Deslogar"
+  "Sign in": "Entrar"
+  "Sign up": "Cadastre-se"
+  "Remember Me": "Lembre-se de mim"
+  "Forgot your password?": "Esqueceu sua senha?"
+  "Send me reset password instructions": "Enviar instruções de recuperação"
   true: "Sim"
   false: "Não"
+  "Owner(s)": "Dono(s)"
   helpers:
     submit:
       create: 'Criar %{model}'
@@ -285,4 +293,3 @@ pt-BR:
   license: 'Licença'
   Text: 'Texto'
   Texts: 'Textos'
-

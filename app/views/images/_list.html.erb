@@ -8,6 +8,7 @@
       <th><%= t("publish") %></th>
       <th><%= t("firstpage") %></th>
       <th><%= t("license") %></th>
+      <th><%= t("Owner(s)") %></th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,9 @@
       <td><%= image.publish %></td>
       <td><%= image.firstpage %></td>
       <td><%= image.license.name %></td>
+      <% image.users.each do |user| %>
+        <td><%= user.firstname %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

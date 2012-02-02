@@ -1,0 +1,15 @@
+      <% if !notice.nil? || !alert.nil? %>
+        <%
+          if !notice.nil?
+            type = 'success'
+          else
+            type = 'error'
+          end
+        %>
+
+        <div class="alert-message <%= type %>" data-alert>
+          <a class="close" href="#">×</a>
+          <p><%= notice == nil ? t(alert) : t(notice) %></p>
+        </div>
+      <% end %>
+
