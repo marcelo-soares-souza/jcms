@@ -1,4 +1,6 @@
 class TextsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /texts
   # GET /texts.json
   def index
@@ -45,6 +47,7 @@ class TextsController < ApplicationController
   # POST /texts
   # POST /texts.json
   def create
+    @licenses = License.all
     @text = Text.new(params[:text])
 
     respond_to do |format|

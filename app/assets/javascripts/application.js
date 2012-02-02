@@ -33,6 +33,13 @@ $(document).ready(function() {
 
   $(".alert-message").alert('close');
 
+  $("#image-box").fancybox({
+	closeBtn	: true,
+	closeClick	: true,
+    	openEffect	: 'none',
+    	closeEffect	: 'none',
+  });
+
 });
 
 //

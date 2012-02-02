@@ -11,7 +11,6 @@
   <% end %>
 
   <fieldset>
-
     <div class="clearfix">
       <%= f.label :firstname %>
       <div class="input">
@@ -36,7 +35,14 @@
     <div class="clearfix">
       <%= f.label :password %>
       <div class="input">
-        <%= f.text_field :password %>
+        <%= f.password_field :password %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :password_confirm %>
+      <div class="input">
+        <%= f.password_field :password_confirmation %>
       </div>
     </div>
 
@@ -61,6 +67,5 @@
         <%= link_to_if (params[:action] == 'edit', t('Delete'), @user, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete) %>
       <% end %>
     </div>
-
   </fieldset>
 <% end %>

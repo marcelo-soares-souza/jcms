@@ -14,7 +14,7 @@
     <% @images.each do |image| %>
     <tr>
       <td><%= link_to image.id, edit_image_path(image) %></td>
-      <td><%= link_to (image_tag image.image.url(:medium)), edit_image_path(image) %></td>
+      <td><%= link_to (image_tag image.image.url(:thumb)), image.image.url, :id => "image-box" %></td>
       <td><%= link_to image.title, edit_image_path(image) %></td>
       <td><%= image.abstract %></td>
       <td><%= image.publish %></td>
