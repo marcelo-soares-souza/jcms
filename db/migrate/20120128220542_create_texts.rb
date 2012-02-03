@@ -4,8 +4,6 @@ class CreateTexts < ActiveRecord::Migration
       t.string :title
       t.string :abstract
       t.text :body
-      t.boolean :publish
-      t.boolean :firstpage
       t.references :license
 
       t.timestamps

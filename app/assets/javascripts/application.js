@@ -16,6 +16,12 @@
 //= require_tree .
 
 $(document).ready(function() {
+  $("#image-box").fancybox({
+    closeBtn    : true,
+    closeClick  : true,
+    openEffect  : 'none',
+    closeEffect : 'none',
+  });
 
   $('table').dataTable( {
     "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>",
@@ -31,16 +37,12 @@ $(document).ready(function() {
     }
   });
 
-  $(".alert-message").alert('close');
-
-  $("#image-box").fancybox({
-	closeBtn	: true,
-	closeClick	: true,
-    	openEffect	: 'none',
-    	closeEffect	: 'none',
-  });
+   $(".alert-message").slideDown().each( function(index,el) {
+      window.setTimeout( function(){ $(el).slideUp(); }, 2500 + 800 * index);
+   });
 
 });
+
 
 //
 // Integrate Boostrap with DataTables

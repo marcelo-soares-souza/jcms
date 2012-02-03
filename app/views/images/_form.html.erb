@@ -1,3 +1,7 @@
+<% if params[:action] != 'edit' %>
+  <% @image.contents.build %>
+<% end %>
+
 <%= form_for @image,  :html => { :class => "form-stacked", :multipart => true } do |f| %>
   <% if @image.errors.any? %>
       <div class="alert-message alert">
@@ -35,25 +39,13 @@
     <% end %>
 
     <div class="clearfix">
-      <%= f.label :publish %>
-      <div class="input">
-        <%= f.check_box :publish %>
-      </div>
-    </div>
-
-    <div class="clearfix">
-      <%= f.label :firstpage %>
-      <div class="input">
-        <%= f.check_box :firstpage %>
-      </div>
-    </div>
-
-    <div class="clearfix">
       <%= f.label :license %>
       <div class="input">
         <%= f.select( :license_id, @licenses.collect { |l| [l.name, l.id] } ) %>
       </div>
     </div>
+
+    <%= render :partial => 'contents/form', :locals => {:form => f} %>
 
     <div class="actions">
       <%

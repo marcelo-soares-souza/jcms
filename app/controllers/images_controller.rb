@@ -6,7 +6,7 @@ class ImagesController < ApplicationController
   # GET /images.json
   def index
     @licenses = License.all
-    @images = Image.all
+    @images = Image.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
     @image = Image.new
 
     respond_to do |format|
@@ -50,15 +50,9 @@ class ImagesController < ApplicationController
   def create
     @licenses = License.all
     @image = Image.create(params[:image])
-    @content = Content.new
 
     respond_to do |format|
       if @image.save
-        @content.image_id     = @image.id
-        @content.user_id      = current_user.id
-        @content.submittedby  = true
-        @content.save
-
         format.html { redirect_to images_url, :notice => 'Successfully created' }
         format.json { render :json => @image, :status => :created, :location => @image }
       else

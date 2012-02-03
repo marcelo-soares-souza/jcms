@@ -11,4 +11,6 @@ class Text < ActiveRecord::Base
 
   has_many :contents, :dependent => :destroy
   has_many :users, :through => :contents
+
+  accepts_nested_attributes_for :contents, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 end

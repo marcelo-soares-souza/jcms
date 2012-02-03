@@ -1,0 +1,17 @@
+<%= form.fields_for :contents do |c| %>
+    <div class="clearfix">
+      <%= c.label :publish %>
+      <div class="input">
+        <%= c.check_box :publish %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= c.label :firstpage %>
+      <div class="input">
+        <%= c.check_box :firstpage %>
+      </div>
+    </div>
+
+    <%= c.hidden_field :user_id, :value => current_user.id %>
+<% end %>

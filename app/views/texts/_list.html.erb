@@ -4,9 +4,9 @@
       <th>#</th>
       <th><%= t("title")%></th>
       <th><%= t("abstract") %></th>
+      <th><%= t("license") %></th>
       <th><%= t("publish") %></th>
       <th><%= t("firstpage") %></th>
-      <th><%= t("license") %></th>
       <th><%= t("Owner(s)") %></th>
     </tr>
   </thead>
@@ -16,9 +16,11 @@
       <td><%= link_to text.id, edit_text_path(text) %>
       <td><%= link_to text.title, edit_text_path(text) %>
       <td><%= text.abstract %></td>
-      <td><%= text.publish %></td>
-      <td><%= text.firstpage %></td>
       <td><%= text.license.name %></td>
+      <% text.contents.each do |content| %>
+        <td><%= content.publish %></td>
+        <td><%= content.firstpage %></td>
+      <% end %>
       <% text.users.each do |user| %>
         <td><%= user.firstname %></td>
       <% end %>

@@ -6,8 +6,6 @@ class CreateImages < ActiveRecord::Migration
       t.string :image_file_name
       t.string :image_content_type
       t.string :image_file_size
-      t.boolean :publish
-      t.boolean :firstpage
       t.references :license
 
       t.timestamps

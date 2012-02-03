@@ -16,9 +16,11 @@ ActiveRecord::Schema.define(:version => 20120202123020) do
     t.integer  "user_id"
     t.integer  "text_id"
     t.integer  "image_id"
-    t.boolean  "submittedby"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "submittedby", :default => true
+    t.boolean  "publish",     :default => false
+    t.boolean  "firstpage",   :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "contents", ["image_id"], :name => "index_contents_on_image_id"
@@ -31,8 +33,6 @@ ActiveRecord::Schema.define(:version => 20120202123020) do
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.string   "image_file_size"
-    t.boolean  "publish"
-    t.boolean  "firstpage"
     t.integer  "license_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
@@ -52,8 +52,6 @@ ActiveRecord::Schema.define(:version => 20120202123020) do
     t.string   "title"
     t.string   "abstract"
     t.text     "body"
-    t.boolean  "publish"
-    t.boolean  "firstpage"
     t.integer  "license_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

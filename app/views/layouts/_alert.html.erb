@@ -1,14 +1,22 @@
-      <% if !notice.nil? || !alert.nil? %>
+      <% if (!notice.nil? || !alert.nil?) || !flash[:alert].nil? %>
         <%
           if !notice.nil?
+          	message = t(notice)
             type = 'success'
-          else
+          elsif !alert.nil?
+          	message = t(alert)
             type = 'error'
+          elsif !flash[:alert].nil?
+          	message = flash[:alert]
+            type = 'alert'
+          elsif !flash[:notice].nil?
+          	message = flash[:alert]
+            type = 'success'
           end
         %>
 
         <div class="alert-message <%= type %>" data-alert>
           <a class="close" href="#">×</a>
-          <p><%= notice == nil ? t(alert) : t(notice) %></p>
+          <p><%= message %></p>
         </div>
       <% end %>
