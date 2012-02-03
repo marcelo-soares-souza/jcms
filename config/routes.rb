@@ -5,6 +5,7 @@ Jcms::Application.routes.draw do
   resources :licenses
   resources :texts
   resources :images
+  resources :beyonds
 
   get "home/index"
 

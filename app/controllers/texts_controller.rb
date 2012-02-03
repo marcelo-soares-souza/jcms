@@ -1,6 +1,6 @@
 class TextsController < ApplicationController
   protect_from_forgery
-  before_filter :authenticate_user!
+#  before_filter :authenticate_user!
 
   # GET /texts
   # GET /texts.json
