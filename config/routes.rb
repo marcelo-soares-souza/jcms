@@ -5,7 +5,13 @@ Jcms::Application.routes.draw do
   resources :licenses
   resources :texts
   resources :images
-  resources :beyonds
+
+  resources :rest do
+   collection do
+     get 'texts'
+     get 'images'
+   end
+ end
 
   get "home/index"
 

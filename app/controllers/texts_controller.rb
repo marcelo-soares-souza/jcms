@@ -1,13 +1,17 @@
 class TextsController < ApplicationController
   protect_from_forgery
-#  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
 
   # GET /texts
   # GET /texts.json
   def index
-    @licenses = License.all
-    @texts = Text.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
-    @text = Text.new
+    @texts = Text.all(:joins  => :contents, :conditions => ["contents.publish = true"])
+
+    if user_signed_in?
+      @text = Text.new
+      @licenses = License.all
+      @my = Text.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
+    end
 
     respond_to do |format|
       format.html # index.html.erb

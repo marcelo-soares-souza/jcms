@@ -12,11 +12,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @images.each do |image| %>
+    <% images.each do |image| %>
     <tr>
-      <td><%= link_to image.id, edit_image_path(image) %></td>
-      <td><%= link_to (image_tag image.image.url(:thumb)), image.image.url, :id => "image-box" %></td>
-      <td><%= link_to image.title, edit_image_path(image) %></td>
+      <td><%= link_to_if user_signed_in?, image.id, edit_image_path(image) %></td>
+      <td><%= link_to  (image_tag image.image.url(:thumb)), image.image.url, :id => "image-box" %></td>
+      <td><%= link_to_if user_signed_in?, image.title, edit_image_path(image) %></td>
       <td><%= image.abstract %></td>
       <td><%= image.license.name %></td>
       <% image.contents.each do |content| %>

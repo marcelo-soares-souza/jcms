@@ -1,13 +1,22 @@
 <ul class="tabs" data-tabs="tabs">
   <li class="active"><a href="#list"><%= t("List") %></a></li>
-  <li><a href="#create"><%= t("Create") %></a></li>
+  <% if user_signed_in? %>
+    <li><a href="#my"><%= t("My") %></a></li>
+    <li><a href="#create"><%= t("Create") %></a></li>
+  <% end %>
 </ul>
 
 <div class="tab-content">
   <div class="active tab-pane" id="list">
-    <%= render 'list' %>
+    <%= render 'list', :images => @images %>
   </div>
-  <div class="tab-pane" id="create">
-    <%= render 'form' %>
-  </div>
+
+  <% if user_signed_in? %>
+    <div class="tab-pane" id="my">
+      <%= render 'list', :images => @my %>
+    </div>
+    <div class="tab-pane" id="create">
+      <%= render 'form' %>
+    </div>
+  <% end %>
 </div>
