@@ -1,0 +1,10 @@
+    <br/>
+    <div class="row" >
+    <h3> Latest News</h3>
+      <% @texts.each do |text| %>
+        <div style="text-align:center;">
+          <%= link_to text.title, text %>
+          <hr />
+        </div>
+      <% end %>
+    </div>

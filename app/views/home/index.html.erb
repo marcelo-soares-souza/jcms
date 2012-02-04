@@ -1,33 +1,7 @@
-  <h1>jCMS - juntaDados Content Managament System</h1>
+  <h1><%= t("Blog") %></h1>
   
-  <% if @texts.size > 0 %>  
-    <div class="row">
-      <% @texts.each do |text| %>
-        <div class="span8">
-          <h3><%= link_to text.title, text %></h3>
-          <p><%= text.abstract %></p>
-          <p><%= link_to 'Leia Mais', text, :class=>"btn success" %></p>
-        </div>
-      <% end %>
-    </div>
+  <% if @texts.size > 0 %>
+    <%= render 'home/texts' %>
   <% else %>
     <b><%= t('No Items Registered') %></b>
   <% end %>
-
-  <hr/>
-
-  <% if @images.size > 0 %>  
-    <div class="row">
-      <% @images.each do |image| %>
-        <div class="span6">
-          <h3><%= link_to image.title, image %></h3>
-          <p><%= image.abstract %></p>
-          <p><%= link_to (image_tag image.image.url(:thumb)), image.image.url, :id => "image-box" %></p>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <b><%= t('No Items Registered') %></b>
-  <% end %>
-
-  <hr/>

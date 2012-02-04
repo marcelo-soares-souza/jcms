@@ -1,0 +1,7 @@
+      <% @texts.each do |text| %>
+          <h2><%= link_to text.title, text %></h2>
+          <p><%= text.abstract %></p>
+          <p><%= truncate(text.body, :length => 4096).html_safe %></p>
+          <p><%= link_to 'Leia Mais', text, :class=>"btn success" %></p>
+        <hr />
+      <% end %>

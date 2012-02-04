@@ -14,15 +14,17 @@
   </ul>
 
   <div class="container-fluid">
-    <div class="sidebar"></div>
     <div class="content">
       <%= render 'layouts/alert' %>
       <%= yield %>
     </div>
-
-    <footer>
-      <%= render 'layouts/footer' %>
-    </footer>
+    <div class="sidebar">
+      <%= render 'layouts/sidebar' %> 
+    </div>
   </div>
+  
+  <footer>
+    <%= render 'layouts/footer' %>
+  </footer>
 </body>
 </html>
