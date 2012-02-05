@@ -204,11 +204,16 @@ pt-BR:
   "Logout": "Deslogar"
   "Sign in": "Entrar"
   "Sign up": "Cadastre-se"
+  "Password": "Senha"
+  "Didn't receive confirmation instructions?": "Enviar instruções de confirmação?"
+  "Resend confirmation instructions": "Enviar Instruções"
   "Remember Me": "Lembre-se de mim"
   "Forgot your password?": "Esqueceu sua senha?"
   "Send me reset password instructions": "Enviar instruções de recuperação"
+  "Registration": "Cadastrar"
   true: "Sim"
   false: "Não"
+  Home: "Início"
   "Owner(s)": "Dono(s)"
   helpers:
     submit:
@@ -229,6 +234,15 @@ pt-BR:
         description: 'Descrição'
         url: 'URL'
       text:
+        title: 'Título'
+        abstract: 'Resumo'
+        body: 'Corpo'
+        publish: 'Publicar'
+        firstpage: 'Visível na primeira página'
+        license: 'Licença'
+      image:
+        image: "Imagem"
+      content:
         title: 'Título'
         abstract: 'Resumo'
         body: 'Corpo'
@@ -291,5 +305,13 @@ pt-BR:
   publish: 'Publicar'
   firstpage: 'Visível na primeira página'
   license: 'Licença'
+  text: 'Texto'
   Text: 'Texto'
+  texts: 'Textos'
   Texts: 'Textos'
+  image: 'Imagem'
+  images: 'Imagem'
+  Image: 'Imagem'
+  Images: 'Imagens'
+  My: 'Contribuições'
+  'Latest News': 'Últimas Novidades'

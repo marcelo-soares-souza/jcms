@@ -10,7 +10,7 @@
 
 <div class="tab-content">
   <div class="active tab-pane" id="list">
-    <%= render 'list' %>
+    <%= render 'list', :texts => @all %>
   </div>
 
   <% if user_signed_in? %>

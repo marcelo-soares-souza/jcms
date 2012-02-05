@@ -1,17 +1,16 @@
 Jcms::Application.routes.draw do
+  match "/node/view/:id", :to => redirect("/texts/%{id}")
+  match "/node/view/", :to => redirect("/")
+  match "/node/index", :to => redirect("/")
+  match "/node/", :to => redirect("/")
+
   devise_for :users
 
   resources :users
   resources :licenses
   resources :texts
   resources :images
-
-  resources :rest do
-   collection do
-     get 'texts'
-     get 'images'
-   end
- end
+  resources :contents
 
   get "home/index"
 

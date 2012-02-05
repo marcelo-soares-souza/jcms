@@ -1,12 +1,19 @@
-<h2>Resend confirmation instructions</h2>
+<h1><%= t("Confirmação de E-Mail") %></h1>
 
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
+  <fieldset>
+    <div class="clearfix">
+      <%= f.label :email %>
+      <div class="input">
+        <%= f.email_field :email %>
+      </div>
+    </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+    <div class="actions">
+      <%= f.submit t("Resend confirmation instructions"), 'class' => 'btn success' %>
+      <%= render "links" %>
+    </div>
 
-  <div><%= f.submit "Resend confirmation instructions" %></div>
+  </fieldset>
 <% end %>
-
-<%= render "links" %>

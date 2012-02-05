@@ -19,10 +19,8 @@
       <td><%= link_to_if user_signed_in?, image.title, edit_image_path(image) %></td>
       <td><%= image.abstract %></td>
       <td><%= image.license.name %></td>
-      <% image.contents.each do |content| %>
-        <td><%= content.publish %></td>
-        <td><%= content.firstpage %></td>
-      <% end %>
+      <td><%= image.publish %></td>
+      <td><%= image.firstpage %></td>
       <% image.users.each do |user| %>
         <td><%= user.firstname %></td>
       <% end %>

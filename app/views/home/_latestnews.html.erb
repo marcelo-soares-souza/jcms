@@ -1,10 +1,11 @@
+  <% if !@latests.nil? %>
+    <center>
+    <br/><br/><br/>
+    <h3> <%= t("Latest News") %></h3>
     <br/>
-    <div class="row" >
-    <h3> Latest News</h3>
-      <% @texts.each do |text| %>
-        <div style="text-align:center;">
-          <%= link_to text.title, text %>
-          <hr />
-        </div>
-      <% end %>
-    </div>
+        <% @latests.each do |text| %>
+            <p><%= link_to text.title, text %></p>
+            <hr style="width:150px;" />
+        <% end %>
+    </center>
+  <% end %>

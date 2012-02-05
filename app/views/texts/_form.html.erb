@@ -1,3 +1,22 @@
+<%= javascript_include_tag "/js/tinymce/tiny_mce.js" %>
+<%= javascript_include_tag "/js/tinymce/jquery.tinymce.js" %>
+
+<%= javascript_tag do %>
+$().ready(function() {
+  $('textarea.tinymce').tinymce({
+    script_url : '/js/tinymce/tiny_mce.js',
+    theme : "advanced",
+    theme_advanced_toolbar_location : "top",
+    theme_advanced_toolbar_align : "left",
+    theme_advanced_statusbar_location : "bottom",
+    theme_advanced_resizing : true,
+    width : "800",
+    height : "400"
+  
+  });
+});
+<% end %>
+
 <% if params[:action] != 'edit' %>
   <% @text.contents.build %>
 <% end %>
@@ -30,16 +49,30 @@
     </div>
 
     <div class="clearfix">
-      <%= f.label :body %>
+      <%= f.label :license %>
       <div class="input">
-        <%= f.text_area :body, :class => "ckeditor" %>
+        <%= f.select( :license_id, @licenses.collect { |l| [l.name, l.id] } ) %>
       </div>
     </div>
 
     <div class="clearfix">
-      <%= f.label :license %>
+      <%= f.label :publish %>
       <div class="input">
-        <%= f.select( :license_id, @licenses.collect { |l| [l.name, l.id] } ) %>
+        <%= f.check_box :publish %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :firstpage %>
+      <div class="input">
+        <%= f.check_box :firstpage %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :body %>
+      <div class="input">
+        <%= f.text_area :body, :class => "tinymce" %>
       </div>
     </div>
 

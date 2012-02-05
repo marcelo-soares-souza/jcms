@@ -1,21 +1,21 @@
 class TextsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
   protect_from_forgery
-  # before_filter :authenticate_user!
 
   # GET /texts
   # GET /texts.json
   def index
-    @texts = Text.all(:joins  => :contents, :conditions => ["contents.publish = true"])
+    @licenses = License.all
+    @text = Text.new
+    @all = Text.all(:joins  => :contents, :conditions => ["texts.publish = true"])
 
     if user_signed_in?
-      @text = Text.new
-      @licenses = License.all
       @my = Text.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
     end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @texts }
+      format.json { render :json => @all }
     end
   end
 
@@ -45,7 +45,12 @@ class TextsController < ApplicationController
   # GET /texts/1/edit
   def edit
     @licenses = License.all
-    @texts = Text.all
+    @all = Text.all(:joins  => :contents, :conditions => ["texts.publish = true"])
+
+    if user_signed_in?
+      @my = Text.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
+    end
+
     @text = Text.find(params[:id])
   end
 

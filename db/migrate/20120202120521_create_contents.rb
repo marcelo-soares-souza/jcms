@@ -5,8 +5,6 @@ class CreateContents < ActiveRecord::Migration
       t.references :text
       t.references :image
       t.boolean :submittedby , :default => true
-      t.boolean :publish     , :default => false
-      t.boolean :firstpage   , :default => false
 
       t.timestamps
     end

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+#  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   attr_accessible :firstname, :lastname, :email, :password, :password_confirmation, :remember_me, :status
 
@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   validates :lastname,   :presence => true
 
   has_many :contents, :dependent => :destroy
-  has_many :texts, :through => :contents
-  has_many :images, :through => :contents
+  has_many :texts,    :through => :contents
+  has_many :images,   :through => :contents
 end

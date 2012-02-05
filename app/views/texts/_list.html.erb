@@ -11,16 +11,14 @@
     </tr>
   </thead>
   <tbody>
-    <% @texts.each do |text| %>
+    <% texts.each do |text| %>
     <tr>
       <td><%= link_to_if user_signed_in?, text.id, edit_text_path(text) %>
       <td><%= link_to_if user_signed_in?, text.title, edit_text_path(text) %>
       <td><%= text.abstract %></td>
       <td><%= text.license.name %></td>
-      <% text.contents.each do |content| %>
-        <td><%= content.publish %></td>
-        <td><%= content.firstpage %></td>
-      <% end %>
+      <td><%= text.publish %></td>
+      <td><%= text.firstpage %></td>
       <% text.users.each do |user| %>
         <td><%= user.firstname %></td>
       <% end %>

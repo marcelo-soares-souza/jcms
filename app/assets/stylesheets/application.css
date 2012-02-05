@@ -11,12 +11,7 @@
  *= require_tree .
  *= require_self
 */
-/*
-.container-fluid{position:relative;min-width:940px;padding-left:20px;padding-right:20px;zoom:1;}.container-fluid:before,.container-fluid:after{display:table;content:"";zoom:1;}
-.container-fluid:after{clear:both;}
-.container-fluid>.sidebar{position:absolute;top:0;left:20px;width:220px;}
-.container-fluid>.content{margin-left:240px;}
-*/
+
 body, html {
     background: url("/images/top_bg.png") repeat-x scroll left top transparent;
     color: #454545;
@@ -26,9 +21,9 @@ body, html {
 
 .container-fluid{position:relative;min-width:940px;min-height:400px;zoom:1;}.container-fluid:before,.container-fluid:after{display:table;content:"";zoom:1;}
 .container-fluid:after{clear:both;}
-.container-fluid>.content{ float: left;  width: 70%; margin-left:  40px; }
-.container-fluid>.sidebar{ float: right; width: 20%; margin-right: 30px; text-align: center;}
-footer { margin-left: 40px; }
+.container-fluid .content{ float: left;  width: 70%; margin-left:  20px;}
+.container-fluid .sidebar{ float: right; width: 23%; margin-right: 20px; text-align: center;}
+footer { margin-left: 20px;}
 
 a, a:active, a:hover, a:visited { color: #B34C4C; font-weight: 900;}
 

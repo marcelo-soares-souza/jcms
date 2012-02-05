@@ -1,6 +1,6 @@
 class LicensesController < ApplicationController
-  protect_from_forgery
   before_filter :authenticate_user!
+  protect_from_forgery
 
   # GET /licenses
   # GET /licenses.json

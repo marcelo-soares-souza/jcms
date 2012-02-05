@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  protect_from_forgery
   before_filter :authenticate_user!
+  protect_from_forgery
 
   # GET /users
   # GET /users.json

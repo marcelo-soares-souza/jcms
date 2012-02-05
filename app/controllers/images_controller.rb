@@ -1,21 +1,21 @@
 class ImagesController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
   protect_from_forgery
-  # before_filter :authenticate_user!
 
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all(:joins  => :contents, :conditions => ["contents.publish = true"])
+    @image = Image.new
+    @licenses = License.all
+    @all = Image.all(:joins  => :contents, :conditions => ["images.publish = true"])
 
     if user_signed_in?
-      @image = Image.new
-      @licenses = License.all
       @my = Image.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
     end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @images }
+      format.json { render :json => @all }
     end
   end
 
@@ -45,7 +45,12 @@ class ImagesController < ApplicationController
   # GET /images/1/edit
   def edit
     @licenses = License.all
-    @images = Image.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
+    @all = Image.all(:joins  => :contents, :conditions => ["images.publish = true"])
+
+    if user_signed_in?
+      @my = Image.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
+    end
+
     @image = Image.find(params[:id])
   end
 

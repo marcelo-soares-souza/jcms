@@ -1,10 +1,10 @@
-    <li id="home"><a href="/">Home</a></li>
-    <li id="images"><a href="/images"><%= t("Images") %></a></li>
-    <li id="texts"><a href="/texts"><%= t("Texts") %></a></li>
+    <li id="home"><a href="/"><%= t("Home") %></a></li>
     <% if user_signed_in? %>
+      <li id="texts"><a href="/texts"><%= t("Texts") %></a></li>
+      <li id="images"><a href="/images"><%= t("Images") %></a></li>
       <li id="users"><a href="/users"><%= t("Users") %></a></li>
       <li id="licenses"><a href="/licenses"><%= t("Licenses") %></a></li>
-      <li id="user"> <a href=""><%= current_user.firstname %></a></li>
+<!--      <li id="user"> <a href=""><%= current_user.firstname %></a></li> -->
       <li id="logout"><%= link_to(t("Logout"), destroy_user_session_path, :method => :delete) %></li>
     <% else %>
       <li id="login"><%= link_to(t("Login"), new_user_session_path)  %></li>

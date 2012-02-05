@@ -1,7 +1,10 @@
       <% @texts.each do |text| %>
+        <div style="border-right:1px solid #E1E1E1; padding: 4px 6px 4px 6px;">
           <h2><%= link_to text.title, text %></h2>
           <p><%= text.abstract %></p>
           <p><%= truncate(text.body, :length => 4096).html_safe %></p>
+          <br/>
           <p><%= link_to 'Leia Mais', text, :class=>"btn success" %></p>
-        <hr />
+        </div>
+        <br/><br/>
       <% end %>

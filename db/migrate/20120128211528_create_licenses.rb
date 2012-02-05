@@ -7,5 +7,6 @@ class CreateLicenses < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :licenses, :name,                :unique => true
   end
 end
