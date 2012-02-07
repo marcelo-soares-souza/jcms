@@ -1,6 +1,11 @@
   <h1><%= t("Blog") %></h1>
-  
-  <%= paginate @texts, :window => 15 %>
+  <div class="search">
+    <%= form_tag '/home/search', :method => :get do %>
+      <p><%= text_field_tag :query, params[:query] %> <%= submit_tag t('Search') %></p>
+    <% end %>
+  </div>
+
+  <%= paginate @texts, :window => 8 %>
 
   <% if @texts.size > 0 %>
     <%= render 'home/texts' %>

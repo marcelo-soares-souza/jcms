@@ -1,5 +1,10 @@
 class Text < ActiveRecord::Base
-  paginates_per 15
+  searchable do
+    text :title, :body, :abstract
+    time :created_at
+  end
+
+  paginates_per 20
 
   extend FriendlyId
   friendly_id :title, :use => :slugged

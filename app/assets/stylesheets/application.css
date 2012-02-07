@@ -31,6 +31,11 @@ footer { margin-left: 20px;}
 
 }
 
+.search {
+  float: right;
+  margin-right: 15px;
+}
+
 a, a:active, a:hover, a:visited { color: #B34C4C; font-weight: 900;}
 
 h2 a, h2 a:active, h2 a:hover, h2 a:visited, h1 a, h1 a:active, h1 a:hover, h1 a:visited {

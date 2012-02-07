@@ -7,6 +7,12 @@ Jcms::Application.routes.draw do
 
   devise_for :users
 
+  resources :home do
+    collection do
+      get 'search'
+    end
+  end
+
   resources :users
   resources :licenses
   resources :images
@@ -14,6 +20,7 @@ Jcms::Application.routes.draw do
   resources :texts do
     collection do
       get 'rss'
+      get 'search'
     end
   end
 

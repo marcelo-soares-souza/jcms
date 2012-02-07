@@ -1,5 +1,11 @@
 <h1><%= t("Texts") %></h1>
 
+<%= form_tag search_texts_path, :method => :get do %>
+<p>
+  <%= text_field_tag :query, params[:query] %> <%= submit_tag t('Search') %>
+</p>
+<% end %>
+
 <ul class="tabs" data-tabs="tabs">
   <li class="active"><a href="#list"><%= t("List") %></a></li>
   <% if user_signed_in? %>

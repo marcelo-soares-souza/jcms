@@ -106,4 +106,15 @@ class TextsController < ApplicationController
     render :layout => false
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
+
+  def search
+    @all = Text.search do
+      keywords params[:query]
+    end.results
+
+    respond_to do |format|
+      format.html { render :action => "index" }
+      format.xml  { render :xml => @texts }
+    end
+  end
 end
