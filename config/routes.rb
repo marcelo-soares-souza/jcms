@@ -1,4 +1,5 @@
 Jcms::Application.routes.draw do
+  match "/node/rss", :to => redirect("/texts/rss.rss")
   match "/node/view/:id", :to => redirect("/texts/%{id}")
   match "/node/view/", :to => redirect("/")
   match "/node/index", :to => redirect("/")
@@ -8,9 +9,13 @@ Jcms::Application.routes.draw do
 
   resources :users
   resources :licenses
-  resources :texts
   resources :images
   resources :contents
+  resources :texts do
+    collection do
+      get 'rss'
+    end
+  end
 
   get "home/index"
 

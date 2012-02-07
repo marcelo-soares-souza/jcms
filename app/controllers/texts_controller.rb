@@ -7,10 +7,10 @@ class TextsController < ApplicationController
   def index
     @licenses = License.all
     @text = Text.new
-    @all = Text.all(:joins  => :contents, :conditions => ["texts.publish = true"])
+    @all = Text.all(:joins  => :contents, :order => "created_at DESC", :conditions => ["texts.publish = true"])
 
     if user_signed_in?
-      @my = Text.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
+      @my = Text.all(:joins => :contents, :order => "created_at DESC", :conditions => ["contents.user_id = #{current_user.id}" ])
     end
 
     respond_to do |format|
@@ -22,7 +22,7 @@ class TextsController < ApplicationController
   # GET /texts/1
   # GET /texts/1.json
   def show
-    @text = Text.find(params[:id])
+    @text = Text.find(params[:id].downcase)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -51,7 +51,7 @@ class TextsController < ApplicationController
       @my = Text.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
     end
 
-    @text = Text.find(params[:id])
+    @text = Text.find(params[:id].downcase)
   end
 
   # POST /texts
@@ -75,7 +75,7 @@ class TextsController < ApplicationController
   # PUT /texts/1.json
   def update
     @texts = Text.all
-    @text = Text.find(params[:id])
+    @text = Text.find(params[:id].downcase)
 
     respond_to do |format|
       if @text.update_attributes(params[:text])
@@ -91,7 +91,7 @@ class TextsController < ApplicationController
   # DELETE /texts/1
   # DELETE /texts/1.json
   def destroy
-    @text = Text.find(params[:id])
+    @text = Text.find(params[:id].downcase)
     @text.destroy
 
     respond_to do |format|
@@ -99,5 +99,11 @@ class TextsController < ApplicationController
 
       format.json { head :no_content }
     end
+  end
+
+  def rss
+    @texts = Text.find(:all, :order => "id DESC", :limit => 10)
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
 end
