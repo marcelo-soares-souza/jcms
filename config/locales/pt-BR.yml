@@ -315,3 +315,10 @@ pt-BR:
   Images: 'Imagens'
   My: 'Contribuições'
   'Latest News': 'Últimas Novidades'
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: "Último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próximo &rsaquo;"
+      truncate: "..."

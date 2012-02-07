@@ -2,10 +2,7 @@ class HomeController < ApplicationController
   protect_from_forgery
 
   def index
-    @texts  = Text.all(:joins  => :contents,
-                                  :order => 'created_at DESC',
-                                  :conditions => ["texts.publish = true AND texts.firstpage = true"],
-                                  :limit => 20)
+    @texts = Text.order('created_at DESC').page params[:page]
 
     @latests  = Text.all(:joins  => :contents,
                                   :order => 'created_at DESC',

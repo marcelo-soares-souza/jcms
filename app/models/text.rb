@@ -1,4 +1,6 @@
 class Text < ActiveRecord::Base
+  paginates_per 15
+
   extend FriendlyId
   friendly_id :title, :use => :slugged
 

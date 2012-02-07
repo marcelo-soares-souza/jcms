@@ -1,5 +1,7 @@
   <h1><%= t("Blog") %></h1>
   
+  <%= paginate @texts, :window => 15 %>
+
   <% if @texts.size > 0 %>
     <%= render 'home/texts' %>
   <% else %>
