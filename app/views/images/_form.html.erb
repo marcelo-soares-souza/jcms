@@ -1,5 +1,5 @@
 <% if params[:action] != 'edit' %>
-  <% @image.contents.build %>
+  <% @image.owners.build %>
 <% end %>
 
 <%= form_for @image,  :html => { :class => "form-stacked", :multipart => true } do |f| %>
@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <%= render :partial => 'contents/form', :locals => {:form => f} %>
+    <%= render :partial => 'owners/form', :locals => {:form => f} %>
 
     <div class="actions">
       <%

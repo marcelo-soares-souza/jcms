@@ -7,10 +7,10 @@ class TextsController < ApplicationController
   def index
     @licenses = License.all
     @text = Text.new
-    @all = Text.all(:joins  => :contents, :order => "created_at DESC", :conditions => ["texts.publish = true"])
+    @all = Text.all(:joins  => :owners, :order => "created_at DESC", :conditions => ["texts.publish = true"])
 
     if user_signed_in?
-      @my = Text.all(:joins => :contents, :order => "created_at DESC", :conditions => ["contents.user_id = #{current_user.id}" ])
+      @my = Text.all(:joins => :owners, :order => "created_at DESC", :conditions => ["owners.user_id = #{current_user.id}" ])
     end
 
     respond_to do |format|
@@ -45,10 +45,10 @@ class TextsController < ApplicationController
   # GET /texts/1/edit
   def edit
     @licenses = License.all
-    @all = Text.all(:joins  => :contents, :conditions => ["texts.publish = true"])
+    @all = Text.all(:joins  => :owners, :conditions => ["texts.publish = true"])
 
     if user_signed_in?
-      @my = Text.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
+      @my = Text.all(:joins => :owners, :conditions => ["owners.user_id = #{current_user.id}" ])
     end
 
     @text = Text.find(params[:id].downcase)

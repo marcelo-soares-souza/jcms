@@ -1,7 +1,7 @@
     <li id="home"><a href="/"><%= t("Home") %></a></li>
-    <% if user_signed_in? %>
       <li id="texts"><a href="/texts"><%= t("Texts") %></a></li>
       <li id="images"><a href="/images"><%= t("Images") %></a></li>
+    <% if user_signed_in? %>
       <li id="users"><a href="/users"><%= t("Users") %></a></li>
       <li id="licenses"><a href="/licenses"><%= t("Licenses") %></a></li>
 <!--      <li id="user"> <a href=""><%= current_user.firstname %></a></li> -->

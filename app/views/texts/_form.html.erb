@@ -18,7 +18,7 @@ $().ready(function() {
 <% end %>
 
 <% if params[:action] != 'edit' %>
-  <% @text.contents.build %>
+  <% @text.owners.build %>
 <% end %>
 
 <%= form_for @text, :html => { :class => "form-stacked" } do |f| %>
@@ -76,7 +76,7 @@ $().ready(function() {
       </div>
     </div>
 
-    <%= render :partial => 'contents/form', :locals => {:form => f} %>
+    <%= render :partial => 'owners/form', :locals => {:form => f} %>
 
     <div class="actions">
       <%

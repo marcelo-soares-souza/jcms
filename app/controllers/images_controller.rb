@@ -7,10 +7,10 @@ class ImagesController < ApplicationController
   def index
     @image = Image.new
     @licenses = License.all
-    @all = Image.all(:joins  => :contents, :conditions => ["images.publish = true"])
+    @all = Image.all(:joins  => :owners, :conditions => ["images.publish = true"])
 
     if user_signed_in?
-      @my = Image.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
+      @my = Image.all(:joins => :owners, :conditions => ["owners.user_id = #{current_user.id}" ])
     end
 
     respond_to do |format|
@@ -45,10 +45,10 @@ class ImagesController < ApplicationController
   # GET /images/1/edit
   def edit
     @licenses = License.all
-    @all = Image.all(:joins  => :contents, :conditions => ["images.publish = true"])
+    @all = Image.all(:joins  => :owners, :conditions => ["images.publish = true"])
 
     if user_signed_in?
-      @my = Image.all(:joins => :contents, :conditions => ["contents.user_id = #{current_user.id}" ])
+      @my = Image.all(:joins => :owners, :conditions => ["owners.user_id = #{current_user.id}" ])
     end
 
     @image = Image.find(params[:id])

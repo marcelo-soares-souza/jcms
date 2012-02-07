@@ -12,19 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20120202123020) do
 
-  create_table "contents", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "text_id"
-    t.integer  "image_id"
-    t.boolean  "submittedby", :default => true
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
-
-  add_index "contents", ["image_id"], :name => "index_contents_on_image_id"
-  add_index "contents", ["text_id"], :name => "index_contents_on_text_id"
-  add_index "contents", ["user_id"], :name => "index_contents_on_user_id"
-
   create_table "images", :force => true do |t|
     t.string   "title"
     t.string   "abstract"
@@ -51,6 +38,19 @@ ActiveRecord::Schema.define(:version => 20120202123020) do
   end
 
   add_index "licenses", ["name"], :name => "index_licenses_on_name", :unique => true
+
+  create_table "owners", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "text_id"
+    t.integer  "image_id"
+    t.boolean  "submittedby", :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "owners", ["image_id"], :name => "index_owners_on_image_id"
+  add_index "owners", ["text_id"], :name => "index_owners_on_text_id"
+  add_index "owners", ["user_id"], :name => "index_owners_on_user_id"
 
   create_table "texts", :force => true do |t|
     t.string   "title"

@@ -10,7 +10,7 @@ Jcms::Application.routes.draw do
   resources :users
   resources :licenses
   resources :images
-  resources :contents
+  resources :owners
   resources :texts do
     collection do
       get 'rss'

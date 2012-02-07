@@ -242,13 +242,6 @@ pt-BR:
         license: 'Licença'
       image:
         image: "Imagem"
-      content:
-        title: 'Título'
-        abstract: 'Resumo'
-        body: 'Corpo'
-        publish: 'Publicar'
-        firstpage: 'Visível na primeira página'
-        license: 'Licença'
   activerecord:
     models:
       user: 'Usuário'

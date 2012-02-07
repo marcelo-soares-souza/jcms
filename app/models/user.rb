@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :firstname,   :presence => true
   validates :lastname,   :presence => true
 
-  has_many :contents, :dependent => :destroy
-  has_many :texts,    :through => :contents
-  has_many :images,   :through => :contents
+  has_many :owners, :dependent => :destroy
+  has_many :texts,    :through => :owners
+  has_many :images,   :through => :owners
 end
