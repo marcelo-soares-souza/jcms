@@ -32,8 +32,8 @@
       </td>
       <td><%= image.abstract %></td>
       <td><%= link_to image.license.name, image.license.url %></td>
-      <td><%= image.publish %></td>
-      <td><%= image.firstpage %></td>
+      <td><%= t(image.publish) %></td>
+      <td><%= t(image.firstpage) %></td>
       <% image.users.each do |user| %>
         <td><%= user.firstname %></td>
       <% end %>

@@ -1,10 +1,25 @@
 class ImagesController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:my, :new, :edit, :create, :update, :destroy]
   protect_from_forgery
 
   # GET /images
   # GET /images.json
   def index
+    if user_signed_in?
+      @images = Image.all(:joins => :owners, :conditions => ["owners.user_id = #{current_user.id} OR images.publish = true" ])
+    else
+      @images = Image.all(:joins  => :owners, :conditions => ["images.publish = true"])
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @all }
+    end
+  end
+
+  # GET /images/my
+  # GET /images/my.json
+  def my
     if user_signed_in?
       @images = Image.all(:joins => :owners, :conditions => ["owners.user_id = #{current_user.id}" ])
     else
@@ -12,7 +27,7 @@ class ImagesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # my.html.erb
       format.json { render :json => @all }
     end
   end

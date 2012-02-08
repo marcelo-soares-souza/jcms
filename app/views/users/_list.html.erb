@@ -5,7 +5,7 @@
       <th><%= t("firstname")%></th>
       <th><%= t("lastname") %></th>
       <th><%= t("email") %></th>
-      <th><%= t("password") %></th>
+      <th><%= t("Last Update") %></th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +15,7 @@
       <td><%= link_to user.firstname, edit_user_path(user) %>
       <td><%= user.lastname %></td>
       <td><%= user.email %></td>
-      <td><%= user.password %></td>
+      <td><%= I18n.l(user.updated_at) %></td>
     </tr>
     <% end %>
   </tbody>

@@ -1,10 +1,25 @@
 class TextsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:my, :new, :edit, :create, :update, :destroy]
   protect_from_forgery
 
   # GET /texts
   # GET /texts.json
   def index
+    if user_signed_in?
+      @texts = Text.all(:joins => :owners, :order => "created_at DESC", :conditions => ["owners.user_id = #{current_user.id} OR texts.publish = true" ])
+    else
+      @texts = Text.all(:joins  => :owners, :order => "created_at DESC", :conditions => ["texts.publish = true"])
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @all }
+    end
+  end
+
+  # GET /texts/my
+  # GET /texts/my.json
+  def my
     if user_signed_in?
       @texts = Text.all(:joins => :owners, :order => "created_at DESC", :conditions => ["owners.user_id = #{current_user.id}" ])
     else
@@ -12,7 +27,7 @@ class TextsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # my.html.erb
       format.json { render :json => @all }
     end
   end

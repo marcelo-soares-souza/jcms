@@ -1,8 +1,16 @@
-<h1><%= @text.title %></h1>
-<b><%= t('Published by') %></b> <% @text.users.each do |user| %> <%= user.firstname + ' ' + user.lastname %> <% end %> <b><%= t('in') %></b> <%= I18n.l(@text.created_at) %>
-<br/>
-<b><%= t('licensed under') %></b> <%= link_to @text.license.name, @text.license.url %>
+<h1><%= t("Texts") %></h1>
 
-<br/><br/>
+<ul class="tabs" data-tabs="tabs">
+  <li><a href="/texts"><%= t("All") %></a></li>
+  <li class="active"><a href=""><%= @text.title %></a></li>
+</ul>
 
-<%= @text.body.html_safe %>
+<div class="tab-content">
+  <div class="active tab-pane" id="list">
+    <b><%= t('Published by') %></b> <% @text.users.each do |user| %> <%= user.firstname + ' ' + user.lastname %> <% end %> <b><%= t('in') %></b> <%= I18n.l(@text.created_at) %>
+    <br/>
+    <b><%= t('licensed under') %></b> <%= link_to @text.license.name, @text.license.url %>
+    <br/><br/>
+    <%= @text.body.html_safe %>
+  </div>
+</div>

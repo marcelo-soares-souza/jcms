@@ -30,8 +30,8 @@
       </td>
       <td><%= text.abstract %></td>
       <td><%= link_to text.license.name, text.license.url %></td>
-      <td><%= text.publish %></td>
-      <td><%= text.firstpage %></td>
+      <td><%= t(text.publish) %></td>
+      <td><%= t(text.firstpage) %></td>
       <% text.users.each do |user| %>
         <td><%= user.firstname %></td>
       <% end %>

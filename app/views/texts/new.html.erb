@@ -3,6 +3,7 @@
 <ul class="tabs" data-tabs="tabs">
   <li><a href="/texts"><%= t("List") %></a></li>
   <% if user_signed_in? %>
+    <li><a href="/texts/my"><%= t("Only my") %></a></li>
     <li class="active"><a href="/texts/new"><%= t("Create") %></a></li>
   <% end %>
 </ul>

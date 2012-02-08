@@ -217,8 +217,10 @@ pt-BR:
   "Forgot your password?": "Esqueceu sua senha?"
   "Send me reset password instructions": "Enviar instruções de recuperação"
   "Registration": "Cadastrar"
-  true: "Sim"
-  false: "Não"
+  "true": "Sim"
+  "false": "Não"
+  "All": "Todos"
+  "Only my": "Apenas os meus"
   Home: "Início"
   "Owner(s)": "Dono(s)"
   helpers:

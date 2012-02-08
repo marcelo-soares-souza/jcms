@@ -19,6 +19,7 @@ Jcms::Application.routes.draw do
 
   resources :images do
     collection do
+      get 'my'
       get 'rss'
       get 'search'
     end
@@ -26,6 +27,7 @@ Jcms::Application.routes.draw do
 
   resources :texts do
     collection do
+      get 'my'
       get 'rss'
       get 'search'
     end
