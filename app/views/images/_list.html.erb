@@ -9,21 +9,35 @@
       <th><%= t("publish") %></th>
       <th><%= t("firstpage") %></th>
       <th><%= t("Owner(s)") %></th>
+      <th><%= t("Last Update") %></th>
     </tr>
   </thead>
   <tbody>
     <% images.each do |image| %>
     <tr>
-      <td><%= link_to_if user_signed_in?, image.id, edit_image_path(image) %></td>
-      <td><%= link_to  (image_tag image.image.url(:thumb)), image.image.url, :id => "image-box" %></td>
-      <td><%= link_to_if user_signed_in?, image.title, edit_image_path(image) %></td>
+      <td>
+        <%=
+          link_to_if user_signed_in?, image.id, edit_image_path(image) do
+            link_to image.id, image
+          end
+        %>
+      </td>
+      <td> <%= link_to (image_tag image.image.url(:thumb)), image.image.url, :id => "image-box" %></td>
+      <td>
+        <%=
+          link_to_if user_signed_in?, image.title, edit_image_path(image) do
+            link_to image.title, image
+          end
+        %>
+      </td>
       <td><%= image.abstract %></td>
-      <td><%= image.license.name %></td>
+      <td><%= link_to image.license.name, image.license.url %></td>
       <td><%= image.publish %></td>
       <td><%= image.firstpage %></td>
       <% image.users.each do |user| %>
         <td><%= user.firstname %></td>
       <% end %>
+      <td><%= I18n.l(image.updated_at) %></td>
     </tr>
     <% end %>
   </tbody>

@@ -6,7 +6,6 @@ class LicensesController < ApplicationController
   # GET /licenses.json
   def index
     @licenses = License.all
-    @license = License.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +16,6 @@ class LicensesController < ApplicationController
   # GET /licenses/1
   # GET /licenses/1.json
   def show
-    @licenses = License.all
     @license = License.find(params[:id])
 
     respond_to do |format|
@@ -39,7 +37,6 @@ class LicensesController < ApplicationController
 
   # GET /licenses/1/edit
   def edit
-    @licenses = License.all
     @license = License.find(params[:id])
   end
 
@@ -62,7 +59,6 @@ class LicensesController < ApplicationController
   # PUT /licenses/1
   # PUT /licenses/1.json
   def update
-    @licenses = License.all
     @license = License.find(params[:id])
 
     respond_to do |format|

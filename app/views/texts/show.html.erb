@@ -1,3 +1,8 @@
 <h1><%= @text.title %></h1>
+<b><%= t('Published by') %></b> <% @text.users.each do |user| %> <%= user.firstname + ' ' + user.lastname %> <% end %> <b><%= t('in') %></b> <%= I18n.l(@text.created_at) %>
+<br/>
+<b><%= t('licensed under') %></b> <%= link_to @text.license.name, @text.license.url %>
+
+<br/><br/>
 
 <%= @text.body.html_safe %>

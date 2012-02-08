@@ -1,4 +1,11 @@
 class Image < ActiveRecord::Base
+  searchable do
+    text :title, :abstract
+    time :created_at
+  end
+
+  paginates_per 20
+
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
@@ -12,7 +19,7 @@ class Image < ActiveRecord::Base
   belongs_to :license
 
   has_many :owners, :dependent => :destroy
-  has_many :users,    :through => :owners
+  has_many :users,  :through => :owners
 
   accepts_nested_attributes_for :owners, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 end

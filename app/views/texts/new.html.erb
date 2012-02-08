@@ -1,6 +1,10 @@
+<h1><%= t("Texts") %></h1>
+
 <ul class="tabs" data-tabs="tabs">
-  <li><a href="/texts#list"><%= t("List") %></a></li>
-  <li class="active"><a href="/texts/new#create"><%= t("Create") %></a></li>
+  <li><a href="/texts"><%= t("List") %></a></li>
+  <% if user_signed_in? %>
+    <li class="active"><a href="/texts/new"><%= t("Create") %></a></li>
+  <% end %>
 </ul>
 
 <div class="tab-content">

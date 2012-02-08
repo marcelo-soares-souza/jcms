@@ -5,12 +5,10 @@ class TextsController < ApplicationController
   # GET /texts
   # GET /texts.json
   def index
-    @licenses = License.all
-    @text = Text.new
-    @all = Text.all(:joins  => :owners, :order => "created_at DESC", :conditions => ["texts.publish = true"])
-
     if user_signed_in?
-      @my = Text.all(:joins => :owners, :order => "created_at DESC", :conditions => ["owners.user_id = #{current_user.id}" ])
+      @texts = Text.all(:joins => :owners, :order => "created_at DESC", :conditions => ["owners.user_id = #{current_user.id}" ])
+    else
+      @texts = Text.all(:joins  => :owners, :order => "created_at DESC", :conditions => ["texts.publish = true"])
     end
 
     respond_to do |format|
@@ -45,11 +43,6 @@ class TextsController < ApplicationController
   # GET /texts/1/edit
   def edit
     @licenses = License.all
-    @all = Text.all(:joins  => :owners, :conditions => ["texts.publish = true"])
-
-    if user_signed_in?
-      @my = Text.all(:joins => :owners, :conditions => ["owners.user_id = #{current_user.id}" ])
-    end
 
     @text = Text.find(params[:id].downcase)
   end
@@ -57,9 +50,6 @@ class TextsController < ApplicationController
   # POST /texts
   # POST /texts.json
   def create
-    @licenses = License.all
-    @text = Text.new(params[:text])
-
     respond_to do |format|
       if @text.save
         format.html { redirect_to texts_url, :notice => 'Successfully created' }
@@ -74,7 +64,6 @@ class TextsController < ApplicationController
   # PUT /texts/1
   # PUT /texts/1.json
   def update
-    @texts = Text.all
     @text = Text.find(params[:id].downcase)
 
     respond_to do |format|
@@ -103,18 +92,20 @@ class TextsController < ApplicationController
 
   def rss
     @texts = Text.find(:all, :order => "id DESC", :limit => 10)
+
     render :layout => false
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
 
   def search
-    @all = Text.search do
+    @texts = Text.search do
       keywords params[:query]
     end.results
 
     respond_to do |format|
       format.html { render :action => "index" }
       format.xml  { render :xml => @texts }
+      format.json { render :json => @texts }
     end
   end
 end

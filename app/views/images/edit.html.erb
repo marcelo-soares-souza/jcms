@@ -1,12 +1,15 @@
+<h1><%= t("Images") %></h1>
+
 <ul class="tabs" data-tabs="tabs">
-  <li><a href="/images#list"><%= t("List") %></a></li>
-  <li class="active"><a href="/images/<%= @image.id %>/edit#edit"><%= @image.title %></a></li>
-  <li><a href="/images/new#create"><%= t("Create") %></a></li>
+  <li><a href="/images"><%= t("List") %></a></li>
+  <% if user_signed_in? %>
+    <li><a href="/images/new"><%= t("Create") %></a></li>
+    <li class="active"><a href=""><%= @image.title %></a></li>
+  <% end %>
 </ul>
 
 <div class="tab-content">
   <div class="active tab-pane" id="edit">
-    <%= render 'list', :images => @my %>
     <%= render 'form' %>
   </div>
 </div>

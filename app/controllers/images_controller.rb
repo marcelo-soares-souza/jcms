@@ -5,12 +5,10 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @image = Image.new
-    @licenses = License.all
-    @all = Image.all(:joins  => :owners, :conditions => ["images.publish = true"])
-
     if user_signed_in?
-      @my = Image.all(:joins => :owners, :conditions => ["owners.user_id = #{current_user.id}" ])
+      @images = Image.all(:joins => :owners, :conditions => ["owners.user_id = #{current_user.id}" ])
+    else
+      @images = Image.all(:joins  => :owners, :conditions => ["images.publish = true"])
     end
 
     respond_to do |format|
@@ -45,11 +43,6 @@ class ImagesController < ApplicationController
   # GET /images/1/edit
   def edit
     @licenses = License.all
-    @all = Image.all(:joins  => :owners, :conditions => ["images.publish = true"])
-
-    if user_signed_in?
-      @my = Image.all(:joins => :owners, :conditions => ["owners.user_id = #{current_user.id}" ])
-    end
 
     @image = Image.find(params[:id])
   end
@@ -74,7 +67,6 @@ class ImagesController < ApplicationController
   # PUT /images/1
   # PUT /images/1.json
   def update
-    @images = Image.all
     @image = Image.find(params[:id])
 
     respond_to do |format|
@@ -98,6 +90,25 @@ class ImagesController < ApplicationController
       format.html { redirect_to images_url, :notice => 'Successfully deleted' }
 
       format.json { head :no_content }
+    end
+  end
+
+  def rss
+    @images = Image.find(:all, :order => "id DESC", :limit => 10)
+
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
+  end
+
+  def search
+    @images = Image.search do
+      keywords params[:query]
+    end.results
+
+    respond_to do |format|
+      format.html { render :action => "index" }
+      format.xml  { render :xml => @images }
+      format.json { render :json => @images }
     end
   end
 end

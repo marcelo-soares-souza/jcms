@@ -1,6 +1,10 @@
       <% @texts.each do |text| %>
         <div style="border-right:1px solid #E1E1E1; padding: 4px 6px 4px 6px;">
           <h2><%= link_to text.title, text %></h2>
+          <b><%= t('Published by') %></b> <% text.users.each do |user| %> <%= user.firstname + ' ' + user.lastname %> <% end %> <b><%= t('in') %></b> <%= I18n.l(text.created_at) %>
+          <b><%= t('licensed under') %></b> <%= link_to text.license.name, text.license.url %>
+          <br/><br/>
+
           <p><%= text.abstract %></p>
           <p><%= truncate(text.body, :length => 4096).html_safe %></p>
           <br/>

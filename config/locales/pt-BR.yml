@@ -194,8 +194,9 @@ pt-BR:
   time:
     am: ''
     formats:
-      default: ! '%A, %d de %B de %Y, %H:%M h'
-      long: ! '%A, %d de %B de %Y, %H:%M h'
+#      default: ! '%A, %d de %B de %Y, %H:%Mh'
+      default: ! '%d de %B de %Y'
+      long: ! '%A, %d de %B de %Y, %H:%Mh'
       short: ! '%d/%m, %H:%M h'
     pm: ''
 
@@ -206,6 +207,10 @@ pt-BR:
   "Sign up": "Cadastre-se"
   "Password": "Senha"
   "Search": "Procurar"
+  "Last Update": "Última Atualização"
+  "Published by": "Publicado por"
+  "in": "em"
+  "licensed under": "Licenciado sobre"
   "Didn't receive confirmation instructions?": "Enviar instruções de confirmação?"
   "Resend confirmation instructions": "Enviar Instruções"
   "Remember Me": "Lembre-se de mim"

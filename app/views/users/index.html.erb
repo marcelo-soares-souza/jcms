@@ -1,13 +1,12 @@
+<h1><%= t("Users") %></h1>
+
 <ul class="tabs" data-tabs="tabs">
-  <li class="active"><a href="#list"><%= t("List") %></a></li>
-  <li><a href="#create"><%= t("Create") %></a></li>
+  <li class="active"><a href="/users"><%= t("List") %></a></li>
+  <li><a href="/users/new"><%= t("Create") %></a></li>
 </ul>
 
 <div class="tab-content">
   <div class="active tab-pane" id="list">
     <%= render 'list' %>
-  </div>
-  <div class="tab-pane" id="create">
-    <%= render 'form' %>
   </div>
 </div>

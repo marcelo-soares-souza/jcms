@@ -8,20 +8,34 @@
       <th><%= t("publish") %></th>
       <th><%= t("firstpage") %></th>
       <th><%= t("Owner(s)") %></th>
+      <th><%= t("Last Update") %></th>
     </tr>
   </thead>
   <tbody>
     <% texts.each do |text| %>
     <tr>
-      <td><%= link_to_if user_signed_in?, text.id, edit_text_path(text) %>
-      <td><%= link_to_if user_signed_in?, text.title, edit_text_path(text) %>
+      <td>
+        <%=
+          link_to_if user_signed_in?, text.id, edit_text_path(text) do
+            link_to text.id, text
+          end
+         %>
+      </td>
+      <td>
+        <%=
+          link_to_if user_signed_in?, text.title, edit_text_path(text) do
+            link_to text.title, text
+          end
+        %>
+      </td>
       <td><%= text.abstract %></td>
-      <td><%= text.license.name %></td>
+      <td><%= link_to text.license.name, text.license.url %></td>
       <td><%= text.publish %></td>
       <td><%= text.firstpage %></td>
       <% text.users.each do |user| %>
         <td><%= user.firstname %></td>
       <% end %>
+      <td><%= I18n.l(text.updated_at) %></td>
     </tr>
     <% end %>
   </tbody>
