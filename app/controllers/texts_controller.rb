@@ -65,6 +65,7 @@ class TextsController < ApplicationController
   # POST /texts
   # POST /texts.json
   def create
+    @licenses = License.all
     @text = Text.create(params[:text])
 
     respond_to do |format|
@@ -81,9 +82,22 @@ class TextsController < ApplicationController
   # PUT /texts/1
   # PUT /texts/1.json
   def update
+    @licenses = License.all
     @text = Text.find(params[:id].downcase)
+    owner = false
+
+    @text.owners.each do |owner|
+      if current_user.id == owner.user_id
+        owner = true
+      end
+    end
+
 
     respond_to do |format|
+      if owner != true
+          format.html { redirect_to texts_url, :alert => 'Permission Denied' }
+      end
+
       if @text.update_attributes(params[:text])
         format.html { redirect_to texts_url, :notice => 'Successfully updated' }
         format.json { head :no_content }
@@ -98,9 +112,23 @@ class TextsController < ApplicationController
   # DELETE /texts/1.json
   def destroy
     @text = Text.find(params[:id].downcase)
-    @text.destroy
+    owner = false
+
+    @text.owners.each do |owner|
+      if current_user.id == owner.user_id
+        owner = true
+      end
+    end
+
+    if owner == true
+      @text.destroy
+    end
 
     respond_to do |format|
+      if owner != true
+          format.html { redirect_to texts_url, :alert => 'Permission Denied' }
+      end
+
       format.html { redirect_to texts_url, :notice => 'Successfully deleted' }
 
       format.json { head :no_content }

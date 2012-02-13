@@ -81,9 +81,7 @@
 
       <% if (params[:action] == 'edit' && delete == true) || params[:action] != 'edit' %>
         <%= f.submit 'class' => type %>
-      <% end %>
 
-      <% if params[:action] == 'edit' && delete == true %>
         <%= link_to_if (params[:action] == 'edit', t('Delete'), @image, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete) %>
       <% end %>
     </div>

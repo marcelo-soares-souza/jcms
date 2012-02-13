@@ -1,20 +1,9 @@
-<%= javascript_include_tag "/js/tinymce/tiny_mce.js" %>
-<%= javascript_include_tag "/js/tinymce/jquery.tinymce.js" %>
+<%= javascript_include_tag "/js/ckeditor/ckeditor.js" %>
 
 <%= javascript_tag do %>
-$().ready(function() {
-  $('textarea.tinymce').tinymce({
-    script_url : '/js/tinymce/tiny_mce.js',
-    theme : "advanced",
-    theme_advanced_toolbar_location : "top",
-    theme_advanced_toolbar_align : "left",
-    theme_advanced_statusbar_location : "bottom",
-    theme_advanced_resizing : true,
-    width : "800",
-    height : "400"
-  
-  });
-});
+//<![CDATA[
+  CKEDITOR.replace( 'textareas' );
+//]]>
 <% end %>
 
 <% if params[:action] != 'edit' %>
@@ -72,7 +61,7 @@ $().ready(function() {
     <div class="clearfix">
       <%= f.label :body %>
       <div class="input">
-        <%= f.text_area :body, :class => "tinymce" %>
+        <%= f.text_area :body, :class => "ckeditor" %>
       </div>
     </div>
 
@@ -87,8 +76,18 @@ $().ready(function() {
         end
       %>
 
-      <%= f.submit 'class' => type %>
-      <% if params[:action] == 'edit' %>
+      <%
+        delete = false
+        @text.users.each do |user|
+          if user.id == current_user.id
+            delete = true
+          end
+        end
+      %>
+
+      <% if (params[:action] == 'edit' && delete == true) || params[:action] != 'edit' %>
+        <%= f.submit 'class' => type %>
+
         <%= link_to_if (params[:action] == 'edit', t('Delete'), @text, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete) %>
       <% end %>
     </div>

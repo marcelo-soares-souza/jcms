@@ -7,10 +7,20 @@
 
 <div class="tab-content">
   <div class="active tab-pane" id="list">
-    <b><%= t('Published by') %></b> <% @text.users.each do |user| %> <%= user.firstname + ' ' + user.lastname %> <% end %> <b><%= t('in') %></b> <%= I18n.l(@text.created_at) %>
+    <b><%= t('Published by') %></b> <% @text.users.each do |user| %> <%= user.firstname + ' ' + user.lastname %> <% @user_id = user.id %> <% end %> <b><%= t('in') %></b> <%= I18n.l(@text.created_at) %>
     <br/>
     <b><%= t('licensed under') %></b> <%= link_to @text.license.name, @text.license.url %>
     <br/><br/>
     <%= @text.body.html_safe %>
+
+    <% if (user_signed_in? && current_user.id == @user_id) %>
+    <div class="actions_alt">
+      <%= link_to_if (current_user.id == @user_id, t('Edit')  , edit_text_path(@text), :class => 'btn success') %>
+      <%= link_to_if (current_user.id == @user_id, t('Delete'), @text, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete) %>
+    </div>
+    <% end %>
+
   </div>
 </div>
+
+

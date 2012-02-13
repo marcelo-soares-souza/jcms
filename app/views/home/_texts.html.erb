@@ -1,7 +1,12 @@
       <% @texts.each do |text| %>
         <div style="border-right:1px solid #E1E1E1; padding: 4px 6px 4px 6px;">
           <h2><%= link_to text.title, text %></h2>
-          <b><%= t('Published by') %></b> <% text.users.each do |user| %> <%= user.firstname + ' ' + user.lastname %> <% end %> <b><%= t('in') %></b> <%= I18n.l(text.created_at) %>
+          <b>
+             <%= t('Published by') %></b> <% text.users.each do |user| %>
+               <%= user.firstname + ' ' + user.lastname %>
+               <% @user_id = user.id %>
+             <% end %> <b><%= t('in') %>
+          </b> <%= I18n.l(text.created_at) %>
           <b><%= t('licensed under') %></b> <%= link_to text.license.name, text.license.url %>
           <br/>     
           <b><%= t("Abstract") %>:</b> <%= text.abstract %>   
@@ -11,6 +16,14 @@
           <% if text.body.length > 4096 %>
             <p><%= link_to 'Leia Mais', text, :class=>"btn success" %></p>
           <% end %>
+
+          <% if (user_signed_in? && current_user.id == @user_id) %>
+          <div class="actions_alt">
+            <%= link_to_if (current_user.id == @user_id, t('Edit')  , edit_text_path(text), :class => 'btn success') %>
+            <%= link_to_if (current_user.id == @user_id, t('Delete'), text, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete) %>
+          </div>
+          <% end %>
+
         </div>
         <br/>     
       <% end %>
