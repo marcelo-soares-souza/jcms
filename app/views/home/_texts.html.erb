@@ -3,14 +3,14 @@
           <h2><%= link_to text.title, text %></h2>
           <b><%= t('Published by') %></b> <% text.users.each do |user| %> <%= user.firstname + ' ' + user.lastname %> <% end %> <b><%= t('in') %></b> <%= I18n.l(text.created_at) %>
           <b><%= t('licensed under') %></b> <%= link_to text.license.name, text.license.url %>
-          <br/><br/>
-
-          <p><%= text.abstract %></p>
+          <br/>     
+          <b><%= t("Abstract") %>:</b> <%= text.abstract %>   
+          <br/>     
           <p><%= truncate(text.body, :length => 4096).html_safe %></p>
           <br/>
           <% if text.body.length > 4096 %>
             <p><%= link_to 'Leia Mais', text, :class=>"btn success" %></p>
           <% end %>
         </div>
-        <br/><br/>
+        <br/>     
       <% end %>

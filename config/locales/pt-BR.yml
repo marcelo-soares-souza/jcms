@@ -210,7 +210,8 @@ pt-BR:
   "Last Update": "Última Atualização"
   "Published by": "Publicado por"
   "in": "em"
-  "licensed under": "Licenciado sobre"
+  "licensed under": "licenciado sobre"
+  "Licensed under": "Licenciado sobre"
   "Didn't receive confirmation instructions?": "Enviar instruções de confirmação?"
   "Resend confirmation instructions": "Enviar Instruções"
   "Remember Me": "Lembre-se de mim"
@@ -301,7 +302,8 @@ pt-BR:
 
 # text
   title: 'Título'
-  abstract: 'Resumo'
+  abstract: 'resumo'
+  Abstract: 'Resumo'
   body: 'Corpo'
   publish: 'Publicar'
   firstpage: 'Visível na primeira página'

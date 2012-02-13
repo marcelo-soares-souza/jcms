@@ -65,6 +65,8 @@ class TextsController < ApplicationController
   # POST /texts
   # POST /texts.json
   def create
+    @text = Text.create(params[:text])
+
     respond_to do |format|
       if @text.save
         format.html { redirect_to texts_url, :notice => 'Successfully created' }
