@@ -145,6 +145,7 @@ class TextsController < ApplicationController
   def search
     @texts = Text.search do
       keywords params[:query]
+      order_by :created_at, :desc
     end.results
 
     respond_to do |format|

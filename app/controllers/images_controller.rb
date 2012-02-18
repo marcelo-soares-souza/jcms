@@ -6,9 +6,9 @@ class ImagesController < ApplicationController
   # GET /images.json
   def index
     if user_signed_in?
-      @images = Image.all(:joins => :owners, :conditions => ["owners.user_id = #{current_user.id} OR images.publish = true" ])
+      @images = Image.all(:joins => :owners, :order => "created_at DESC", :conditions => ["owners.user_id = #{current_user.id} OR images.publish = true" ])
     else
-      @images = Image.all(:joins  => :owners, :conditions => ["images.publish = true"])
+      @images = Image.all(:joins  => :owners, :order => "created_at DESC", :conditions => ["images.publish = true"])
     end
 
     respond_to do |format|
@@ -144,6 +144,7 @@ class ImagesController < ApplicationController
   def search
     @images = Image.search do
       keywords params[:query]
+      order_by :created_at, :desc
     end.results
 
     respond_to do |format|
