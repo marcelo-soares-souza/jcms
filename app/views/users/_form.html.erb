@@ -56,9 +56,7 @@
       %>
 
       <%= f.submit 'class' => type %>
-      <% if params[:action] == 'edit' %>
-        <%= link_to_if (params[:action] == 'edit', t('Delete'), @user, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete) %>
-      <% end %>
+      <%= link_to_if (params[:action] == 'edit', t('Delete'), @user, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete) {} %>
     </div>
   </fieldset>
 <% end %>

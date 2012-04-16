@@ -238,6 +238,7 @@ pt-BR:
         email: 'E-Mail'
         password: 'Senha'
         status: 'Situação'
+        password_confirm: 'Confirme a Senha'
       license:
         name: 'Nome'
         description: 'Descrição'
@@ -250,6 +251,12 @@ pt-BR:
         firstpage: 'Visível na primeira página'
         license: 'Licença'
       image:
+        title: 'Título'
+        abstract: 'Resumo'
+        body: 'Corpo'
+        publish: 'Publicar'
+        firstpage: 'Visível na primeira página'
+        license: 'Licença'
         image: "Imagem"
   activerecord:
     models:
