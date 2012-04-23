@@ -55,7 +55,8 @@
         end
       %>
 
-      <%= f.submit 'class' => type %>
+      <%= f.submit 'class' => type, :disable_with => I18n.t('Submitting') %>
+
       <%= link_to_if (params[:action] == 'edit', t('Delete'), @user, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete) {} %>
     </div>
   </fieldset>

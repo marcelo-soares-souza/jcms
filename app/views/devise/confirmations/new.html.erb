@@ -11,7 +11,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit t("Resend confirmation instructions"), 'class' => 'btn success' %>
+      <%= f.submit t("Resend confirmation instructions"), 'class' => 'btn success', :disable_with => I18n.t('Submitting') %>
       <%= render "links" %>
     </div>
 

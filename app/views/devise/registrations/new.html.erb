@@ -39,7 +39,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit t("Sign up"), 'class' => 'btn primary' %>
+      <%= f.submit t("Sign up"), 'class' => 'btn primary', :disable_with => I18n.t('Submitting') %>
       <%= render "links" %>
     </div>
   </fieldset>

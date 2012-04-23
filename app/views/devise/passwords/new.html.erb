@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="actions">
-       <%= f.submit t("Send me reset password instructions"), 'class' => 'btn danger' %>
+       <%= f.submit t("Send me reset password instructions"), 'class' => 'btn danger', :disable_with => I18n.t('Submitting') %>
        <%= render "links" %>
     </div>
   </fieldset>

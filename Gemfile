@@ -13,7 +13,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'paperclip', '3.0.1'
+gem 'paperclip', '2.7.0'
 gem 'warden'
 gem 'bcrypt-ruby'
 gem 'devise'
