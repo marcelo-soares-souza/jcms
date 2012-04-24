@@ -1,0 +1,12 @@
+<h1><%= t("Menus") %></h1>
+
+<ul class="tabs" data-tabs="tabs">
+  <li class="active"><a href="/menus"><%= t("List") %></a></li>
+  <li><a href="/menus/new"><%= t("Create") %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane" id="list">
+    <%= render 'list' %>
+  </div>
+</div>

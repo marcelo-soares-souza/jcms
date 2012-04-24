@@ -1,6 +1,11 @@
 class LicensesController < ApplicationController
   before_filter :authenticate_user!
   protect_from_forgery
+  before_filter :menu
+
+  def menu
+    @mainmenu = Menu.all
+  end
 
   # GET /licenses
   # GET /licenses.json

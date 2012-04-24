@@ -1,6 +1,11 @@
 class TextsController < ApplicationController
   before_filter :authenticate_user!, :only => [:my, :new, :edit, :create, :update, :destroy]
   protect_from_forgery
+  before_filter :menu
+
+  def menu
+    @mainmenu = Menu.all
+  end
 
   # GET /texts
   # GET /texts.json

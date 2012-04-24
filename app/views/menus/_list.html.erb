@@ -1,0 +1,18 @@
+<table class="bordered-table zebra-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t("title")%></th>
+      <th><%= t("url") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @menus.each do |menu| %>
+    <tr>
+      <td><%= link_to menu.id, edit_menu_path(menu) %>
+      <td><%= link_to menu.title, edit_menu_path(menu) %>
+      <td><%= menu.url %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

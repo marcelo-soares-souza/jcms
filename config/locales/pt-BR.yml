@@ -259,6 +259,9 @@ pt-BR:
         firstpage: 'Visível na primeira página'
         license: 'Licença'
         image: "Imagem"
+      menu:
+        title: 'Título'
+        url: 'URL'
   activerecord:
     models:
       user: 'Usuário'

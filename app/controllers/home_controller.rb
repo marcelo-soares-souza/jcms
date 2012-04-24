@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
   protect_from_forgery
+  before_filter :menu
+
+  def menu        
+    @mainmenu = Menu.all
+  end
 
   def index
     @texts = Text.order('created_at DESC').page params[:page]
