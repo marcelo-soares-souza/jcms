@@ -19,8 +19,8 @@
 
           <% if (user_signed_in? && current_user.id == @user_id) %>
           <div class="actions_alt">
-            <%= link_to_if (current_user.id == @user_id, t('Edit')  , edit_text_path(text), :class => 'btn success', :disable_with => I18n.t('Submitting')) %>
-            <%= link_to_if (current_user.id == @user_id, t('Delete'), text, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete, :disable_with => I18n.t('Submitting')) %>
+            <%= link_to t('Edit'), edit_text_path(text), :class => 'btn success', :disable_with => I18n.t('Submitting')  if @current_user.nil? %>
+            <%= link_to t('Delete'), text, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete, :disable_with => I18n.t('Submitting') if @current_user.nil? %>
           </div>
           <% end %>
 
