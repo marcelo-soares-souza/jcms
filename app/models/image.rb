@@ -10,16 +10,18 @@ class Image < ActiveRecord::Base
   friendly_id :title, :use => :slugged
 
   validates :title,    :presence => true,
-                       :length => { :minimum => 5, :maximum => 254 }
+                       :length => { :minimum => 4, :maximum => 254 }
   validates :abstract, :presence => true,
-                       :length => { :minimum => 10, :maximum => 254 }
+                       :length => { :minimum => 8, :maximum => 254 }
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "150x150>" }
 
   belongs_to :license
 
   has_many :owners, :dependent => :destroy
-  has_many :users,  :through => :owners
+  has_many :users,  :through   => :owners
+
+  validates_uniqueness_of :title, :case_sensitive => true, :message => "has already been used"
 
   accepts_nested_attributes_for :owners, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 end

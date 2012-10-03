@@ -27,14 +27,14 @@
     <div class="clearfix">
       <%= f.label :title %>
       <div class="input">
-        <%= f.text_field :title, :class => 'span8' %>
+        <%= f.text_field :title, :class => 'span8', :size => '64', :maxlength => '254' %>
       </div>
     </div>
 
     <div class="clearfix">
       <%= f.label :abstract %>
       <div class="input">
-        <%= f.text_field :abstract, :class => 'span12' %>
+        <%= f.text_field :abstract, :class => 'span12', :size => '96', :maxlength => '254' %>
       </div>
     </div>
 
@@ -48,14 +48,14 @@
     <div class="clearfix">
       <%= f.label :publish %>
       <div class="input">
-        <%= f.check_box :publish %>
+        <%= f.check_box :publish, {:checked => "checked"}  %>
       </div>
     </div>
 
     <div class="clearfix">
       <%= f.label :firstpage %>
       <div class="input">
-        <%= f.check_box :firstpage %>
+        <%= f.check_box :firstpage, {:checked => "checked"}  %>
       </div>
     </div>
 
