@@ -89,19 +89,15 @@ class ImagesController < ApplicationController
   def update
     @licenses = License.all
     @image = Image.find(params[:id])
-    owner = false
 
     @image.owners.each do |owner|
-      if current_user.id == owner.user_id
-        owner = true
+      if current_user.id != owner.user_id
+          redirect_to images_url, :alert => I18n.t('Permission Denied')
+          return false
       end
     end
 
     respond_to do |format|
-      if owner != true
-          format.html { redirect_to images_url, :alert => 'Permission Denied' }
-      end
-
       if @image.update_attributes(params[:image])
         format.html { redirect_to images_url, :notice => 'Successfully updated' }
         format.json { head :no_content }
@@ -116,23 +112,17 @@ class ImagesController < ApplicationController
   # DELETE /images/1.json
   def destroy
     @image = Image.find(params[:id])
-    owner = false
 
     @image.owners.each do |owner|
-      if current_user.id == owner.user_id
-        owner = true
+      if current_user.id != owner.user_id
+          redirect_to images_url, :alert => I18n.t('Permission Denied')
+          return false
       end
     end
 
-    if owner == true
-      @image.destroy
-    end
+    @image.destroy
 
     respond_to do |format|
-      if owner != true
-          format.html { redirect_to images_url, :alert => 'Permission Denied' }
-      end
-
       format.html { redirect_to images_url, :notice => 'Successfully deleted' }
 
       format.json { head :no_content }

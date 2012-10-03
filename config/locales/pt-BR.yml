@@ -285,6 +285,7 @@ pt-BR:
         publish: 'Publicar'
         firstpage: 'Visível na primeira página'
         license: 'Licença'
+
   'Successfully created': 'Foi criado com sucesso' 
   'Successfully updated': 'Foi atualizado com sucesso'
   'Successfully deleted': 'Foi apagado com sucesso'
@@ -337,3 +338,6 @@ pt-BR:
       previous: "&lsaquo; Anterior"
       next: "Próximo &rsaquo;"
       truncate: "..."
+  'has already been used': 'já foi usado'
+  'Read More': 'Leia mais'
+  'Permission Denied': 'Permissão Negada'

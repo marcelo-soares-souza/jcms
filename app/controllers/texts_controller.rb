@@ -89,20 +89,15 @@ class TextsController < ApplicationController
   def update
     @licenses = License.all
     @text = Text.find(params[:id].downcase)
-    owner = false
 
     @text.owners.each do |owner|
-      if current_user.id == owner.user_id
-        owner = true
+      if current_user.id != owner.user_id
+          redirect_to texts_url, :alert => I18n.t('Permission Denied')
+          return false
       end
     end
 
-
     respond_to do |format|
-      if owner != true
-          format.html { redirect_to texts_url, :alert => 'Permission Denied' }
-      end
-
       if @text.update_attributes(params[:text])
         format.html { redirect_to texts_url, :notice => 'Successfully updated' }
         format.json { head :no_content }
@@ -117,23 +112,17 @@ class TextsController < ApplicationController
   # DELETE /texts/1.json
   def destroy
     @text = Text.find(params[:id].downcase)
-    owner = false
 
     @text.owners.each do |owner|
-      if current_user.id == owner.user_id
-        owner = true
+      if current_user.id != owner.user_id
+          redirect_to texts_url, :alert => I18n.t('Permission Denied')
+          return false
       end
     end
 
-    if owner == true
-      @text.destroy
-    end
+    @text.destroy
 
     respond_to do |format|
-      if owner != true
-          format.html { redirect_to texts_url, :alert => 'Permission Denied' }
-      end
-
       format.html { redirect_to texts_url, :notice => 'Successfully deleted' }
 
       format.json { head :no_content }

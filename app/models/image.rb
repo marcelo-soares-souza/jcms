@@ -21,7 +21,7 @@ class Image < ActiveRecord::Base
   has_many :owners, :dependent => :destroy
   has_many :users,  :through   => :owners
 
-  validates_uniqueness_of :title, :case_sensitive => true, :message => "has already been used"
+  validates_uniqueness_of :title, :case_sensitive => true, :message => I18n.t('has already been used')
 
   accepts_nested_attributes_for :owners, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 end

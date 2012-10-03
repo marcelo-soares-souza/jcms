@@ -11,6 +11,9 @@ end
 
 module Jcms
   class Application < Rails::Application
+    TITLE = "jCMS - juntaDados Content Managament System"
+    SYSTEM = "Running in Debian Squeeze + Apache + Passenger (mod_rails) + PostgreSQL"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

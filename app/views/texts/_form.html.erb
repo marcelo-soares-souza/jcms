@@ -1,13 +1,15 @@
 <%= javascript_include_tag "/js/ckeditor/ckeditor.js" %>
 
 <%= javascript_tag do %>
-//<![CDATA[
-  CKEDITOR.replace( 'textareas' );
-//]]>
+  //<![CDATA[
+    CKEDITOR.replace( 'textareas' );
+  //]]>
 <% end %>
 
 <% if params[:action] != 'edit' %>
-  <% @text.owners.build %>
+  <% if ! @text.errors.any? %>
+    <% @text.owners.build %>
+  <% end %>
 <% end %>
 
 <%= form_for @text, :html => { :class => "form-stacked" } do |f| %>
