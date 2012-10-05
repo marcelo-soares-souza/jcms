@@ -17,6 +17,12 @@
             <p><%= link_to I18n.t('Read More'), text, :class=>"btn success" %></p>
           <% end %>
 
+          <b>Tag(s): </b>
+          <% text.tags.any? %>
+            <% text.tags.each do |tag| %>
+            <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+          <% end %>
+
           <% if (user_signed_in? && current_user.id == @user_id) %>
           <div class="actions_alt">
             <%= link_to t('Edit'), edit_text_path(text), :class => 'btn success', :disable_with => I18n.t('Submitting')  if @current_user.nil? %>

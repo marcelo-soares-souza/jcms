@@ -148,4 +148,13 @@ class ImagesController < ApplicationController
       format.json { render :json => @images }
     end
   end
+
+  def tagged
+    if params[:tag].present?
+      @images = Image.tagged_with(params[:tag])
+    else
+      @images = Image.all
+    end
+  end
+
 end

@@ -1,6 +1,8 @@
 Jcms::Application.routes.draw do
   resources :menus
 
+  match 'tagged' => 'home#tagged', :as => 'tagged'
+
   match "/node/rss", :to => redirect("/texts/rss.rss")
   match "/node/view/:id", :to => redirect("/texts/%{id}")
   match "/node/view/", :to => redirect("/")

@@ -49,14 +49,14 @@
     <div class="clearfix">
       <%= f.label :publish %>
       <div class="input">
-        <%= f.check_box :publish, {:checked => "checked"} %>
+        <%= f.check_box :publish %>
       </div>
     </div>
 
     <div class="clearfix">
       <%= f.label :firstpage %>
       <div class="input">
-        <%= f.check_box :firstpage, {:checked => "checked"} %>
+        <%= f.check_box :firstpage %>
       </div>
     </div>
 
@@ -64,6 +64,13 @@
       <%= f.label :body %>
       <div class="input">
         <%= f.text_area :body, :class => "ckeditor" %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :tags %>
+      <div class="input">
+        <%= f.text_field :tag_list, :class => 'span8', :size => '64', :maxlength => '254' %>
       </div>
     </div>
 

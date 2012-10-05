@@ -7,12 +7,14 @@ class HomeController < ApplicationController
   end
 
   def index
-    @texts = Text.order('created_at DESC').page params[:page]
+    @tags = Text.tag_counts_on(:tags)
 
     @latests  = Text.all(:joins  => :owners,
                                     :order => 'created_at DESC',
                                     :conditions => ["texts.publish = true AND texts.firstpage = true"],
                                     :limit => 30)
+
+    @texts = Text.order('created_at DESC').where("texts.publish = true AND texts.firstpage = true").page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -36,6 +38,16 @@ class HomeController < ApplicationController
       format.html { render :action => "index" }
       format.json { render :json => @texts }
       format.xml  { render :xml => @texts }
+    end
+  end
+
+  def tagged
+    if params[:tag].present?
+      @texts  = Text.tagged_with(params[:tag])
+      @images = Image.tagged_with(params[:tag])
+    else
+      @texts = Text.all
+      @images = Image.all
     end
   end
 end

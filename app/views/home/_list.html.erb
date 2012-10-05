@@ -12,6 +12,37 @@
       <th><%= t("Last Update") %></th>
     </tr>
   </thead>
+
+  <tbody>
+    <% texts.each do |text| %>
+    <tr>
+      <td>
+        <%=
+          link_to_if user_signed_in?, text.id, edit_text_path(text) do
+            link_to text.id, text
+          end
+         %>
+      </td>
+      <td> --- </td>
+      <td>
+        <%=
+          link_to_if user_signed_in?, text.title, edit_text_path(text) do
+            link_to text.title, text
+          end
+        %>
+      </td>
+      <td><%= text.abstract %></td>
+      <td><%= link_to text.license.name, text.license.url %></td>
+      <td><%= t(text.publish) %></td>
+      <td><%= t(text.firstpage) %></td>
+      <% text.users.each do |user| %>
+        <td><%= user.firstname %></td>
+      <% end %>
+      <td><%= I18n.l(text.updated_at) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
   <tbody>
     <% images.each do |image| %>
     <tr>
@@ -30,6 +61,7 @@
           end
         %>
       </td>
+
       <td><%= image.abstract %></td>
       <td><%= link_to image.license.name, image.license.url %></td>
       <td><%= t(image.publish) %></td>
@@ -41,5 +73,6 @@
     </tr>
     <% end %>
   </tbody>
+
 </table>
 

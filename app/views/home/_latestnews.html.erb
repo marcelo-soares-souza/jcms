@@ -9,3 +9,14 @@
         <% end %>
     </center>
   <% end %>
+
+  <% if !@tags.nil? %>
+    <center>
+    <br/>
+    <h3> <%= t("Tags") %></h3>
+    <br/>
+    <% tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
+      <%= link_to tag.name, tagged_url(:tag => tag.name), :class => css_class %>      
+    <% end %>
+    </center>
+  <% end %>

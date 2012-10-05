@@ -148,4 +148,13 @@ class TextsController < ApplicationController
       format.json { render :json => @texts }
     end
   end
+
+  def tagged
+    if params[:tag].present?
+      @texts = Text.tagged_with(params[:tag])
+    else
+      @texts = Text.all
+    end
+  end
+
 end

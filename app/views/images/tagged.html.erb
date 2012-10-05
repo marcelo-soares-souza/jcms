@@ -1,0 +1,21 @@
+<h1><%= t("Images") %></h1>
+
+<ul class="tabs" data-tabs="tabs">
+  <li class="active"><a href="/images"><%= t("All") %></a></li>
+  <% if user_signed_in? %>
+    <li><a href="/images/my"><%= t("Only my") %></a></li>
+    <li><a href="/images/new"><%= t("Create") %></a></li>
+  <% end %>
+</ul>
+
+<div class="search">
+  <%= form_tag search_images_path, :method => :get do %>
+    <p><%= image_field_tag :query, params[:query] %> <%= submit_tag t('Search') %></p>
+  <% end %>
+</div>
+
+<div class="tab-content">
+  <div class="active tab-pane" id="list">
+    <%= render 'list', :images => @images %>
+  </div>
+</div>

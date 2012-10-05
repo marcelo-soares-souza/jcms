@@ -12,5 +12,13 @@
     <b><%= t('licensed under') %></b> <%= link_to @image.license.name, @image.license.url %>
     <br/><br/>
     <%= image_tag @image.image.url %>
+
+    <br/><br/>
+    <b>Tag(s): </b>
+    <% @image.tags.any? %>
+        <% @image.tags.each do |tag| %>
+        <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+    <% end %>
+
   </div>
 </div>

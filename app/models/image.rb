@@ -1,4 +1,6 @@
 class Image < ActiveRecord::Base
+  acts_as_taggable_on :tags
+
   searchable do
     text :title, :abstract
     time :created_at

@@ -1,0 +1,11 @@
+<h1><%= t("Texts") + " " + t("and") + " " + t("Images")%></h1>
+
+<ul class="tabs" data-tabs="tabs">
+  <li class="active"><a href="/"><%= t("All") %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane" id="list">
+    <%= render 'list', :texts => @texts, :images => @images %>
+  </div>
+</div>
