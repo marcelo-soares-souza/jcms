@@ -10,6 +10,7 @@
       <th><%= t("firstpage") %></th>
       <th><%= t("Owner(s)") %></th>
       <th><%= t("Last Update") %></th>
+      <th><%= t("Tags") %></th>
     </tr>
   </thead>
   <tbody>
@@ -38,6 +39,12 @@
         <td><%= user.firstname %></td>
       <% end %>
       <td><%= I18n.l(image.updated_at) %></td>
+
+      <td>
+        <% image.tags.each do |tag| %>
+          <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
