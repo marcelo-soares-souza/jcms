@@ -314,6 +314,7 @@ pt-BR:
   Licenses: 'Licenças'
 
 # text
+  Title: 'Título'
   title: 'Título'
   abstract: 'resumo'
   Abstract: 'Resumo'
@@ -342,3 +343,5 @@ pt-BR:
   'has already been used': 'já foi usado'
   'Read More': 'Leia mais'
   'Permission Denied': 'Permissão Negada'
+  'Type': 'Tipo'
+  'type': 'tipo'

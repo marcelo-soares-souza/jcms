@@ -1,6 +1,7 @@
 <table class="bordered-table zebra-striped">
   <thead>
     <tr>
+      <th><%= t("Type")%></th>
       <th>#</th>
       <th><%= t("image")%></th>
       <th><%= t("title")%></th>
@@ -16,6 +17,7 @@
   <tbody>
     <% texts.each do |text| %>
     <tr>
+      <td style="background: #EFF44E; font-weight:bold;"><%= t("Text")%></td>
       <td>
         <%=
           link_to_if user_signed_in?, text.id, edit_text_path(text) do
@@ -41,11 +43,10 @@
       <td><%= I18n.l(text.updated_at) %></td>
     </tr>
     <% end %>
-  </tbody>
 
-  <tbody>
     <% images.each do |image| %>
     <tr>
+      <td style="background: #ED4634; font-weight:bold;"><%= t("Image")%></td>
       <td>
         <%=
           link_to_if user_signed_in?, image.id, edit_image_path(image) do
