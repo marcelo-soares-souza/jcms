@@ -1,0 +1,15 @@
+# config/application.yml
+
+defaults: &defaults
+  title:  "jCMS - juntaDados Content Managament System"
+  description: "juntaDados Content Managament System"
+  system: "Running in Debian Squeeze + Apache + Passenger (mod_rails) + PostgreSQL"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

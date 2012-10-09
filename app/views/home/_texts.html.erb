@@ -11,7 +11,8 @@
           <br/>     
           <b><%= t("Abstract") %>:</b> <%= text.abstract %>   
           <br/>     
-          <p><%= truncate(text.body, :length => 4096).html_safe %></p>
+          <p></p>
+          <%= truncate(text.body, :length => 4096).html_safe %>
           <br/>
           <% if text.body.length > 4096 %>
             <p><%= link_to I18n.t('Read More'), text, :class=>"btn success" %></p>

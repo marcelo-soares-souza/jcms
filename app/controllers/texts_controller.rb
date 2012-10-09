@@ -132,6 +132,9 @@ class TextsController < ApplicationController
   def rss
     @texts = Text.find(:all, :order => "id DESC", :limit => 10)
 
+    @title = Settings.title
+    @description = Settings.description
+
     render :layout => false
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
