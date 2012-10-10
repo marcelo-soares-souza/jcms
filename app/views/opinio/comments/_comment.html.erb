@@ -1,0 +1,22 @@
+<% reply = defined?(reply) ? reply : false %>
+<div style="background: #F2F1F0; border:1px solid; padding: 4px 8px 4px 8px;">
+  <span><b><%= I18n.t('Commented by') %>:</b> <%= comment.owner.firstname %></span>
+  <p>
+    <%= simple_format(comment.body) %>
+  </p>
+
+  <% if (user_signed_in? && current_user.id == @user_id) %>
+    <% if (current_user.id == comment.owner.id) %>
+      <br/>
+      <%=  link_to I18n.t('Delete'), comment, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete, :disable_with => I18n.t('Submitting') if @current_user.nil? %>
+    <% end %>
+  <% end %>
+
+  <% if Opinio.accept_replies && !reply %>
+    <span><%= link_to t('opinio.actions.reply'), reply_comment_path(comment), :remote => true %></span>
+    <ul id="comment_<%= comment.id %>_replies" class="replies">
+      <%= render :partial => "opinio/comments/comment", :collection => comment.comments, :locals => {:reply => true} %>
+    </ul>
+  <% end %>
+</div>
+<br/>

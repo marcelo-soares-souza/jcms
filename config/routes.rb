@@ -1,4 +1,6 @@
 Jcms::Application.routes.draw do
+  opinio_model
+
   resources :menus
 
   match 'tagged' => 'home#tagged', :as => 'tagged'
@@ -30,6 +32,7 @@ Jcms::Application.routes.draw do
   end
 
   resources :texts do
+    opinio
     collection do
       get 'my'
       get 'rss'

@@ -24,6 +24,9 @@
             <%= link_to tag.name, tagged_url(:tag => tag.name) %>
           <% end %>
 
+          <br/><b><%= I18n.t('Comment') %>(s): </b>
+          <%= link_to text.comments.count, text_path(text, :anchor => "comments") %>
+
           <% if (user_signed_in? && current_user.id == @user_id) %>
           <div class="actions_alt">
             <%= link_to t('Edit'), edit_text_path(text), :class => 'btn success', :disable_with => I18n.t('Submitting')  if @current_user.nil? %>

@@ -1,5 +1,6 @@
 class Text < ActiveRecord::Base
   acts_as_taggable_on :tags
+  opinio_subjectum
 
   searchable do
     text :title, :body, :abstract
@@ -29,6 +30,4 @@ class Text < ActiveRecord::Base
   accepts_nested_attributes_for :owners,
                                 :allow_destroy => :true,
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
-
-
 end

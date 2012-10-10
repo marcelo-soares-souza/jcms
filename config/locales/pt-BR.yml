@@ -345,3 +345,11 @@ pt-BR:
   'Permission Denied': 'Permissão Negada'
   'Type': 'Tipo'
   'type': 'tipo'
+  'Comment': 'Comentário'
+  'comment': 'comentário'
+  'Add Comment': 'Adicionar um comentário'
+  'Commented by': 'Comentando por'
+  opinio:
+    messages:
+      no_comments_found: 'Nenhum comentário encontrado'
+      must_be_logged_in_to_comment: 'É preciso esta logado para comentar'

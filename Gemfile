@@ -25,4 +25,7 @@ gem 'sunspot_solr'
 gem 'sunspot_with_kaminari'
 gem 'progress_bar'
 gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'opinio'
 gem 'settingslogic'
+
+gem "kaminari"

@@ -1,0 +1,17 @@
+<div id="new_comment">
+  <% if send(Opinio.current_user_method) %>
+    <h3><%= I18n.t('Add Comment') %></h3>
+    <%= form_for Comment.new, :remote => false do |f| %>
+      <p>
+        <%= f.text_area :body, :rows => "8", :class => 'span12' %>
+      </p>
+      <%= hidden_field_tag :commentable_id, commentable.id %>
+      <%= hidden_field_tag :commentable_type, commentable.class.base_class.name.to_s %>
+      <%= f.submit I18n.t('Create') %>
+    <% end %>
+  <% else %>
+    <p>
+      <%= t('opinio.messages.must_be_logged_in_to_comment') %>
+    </p>
+  <% end %>
+</div>
