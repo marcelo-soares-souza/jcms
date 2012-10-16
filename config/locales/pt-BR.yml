@@ -263,6 +263,10 @@ pt-BR:
         title: 'Título'
         url: 'URL'
   activerecord:
+    errors:
+      messages:
+        existence: 'não existe'
+        record_invalid: 'registro inválido'
     models:
       user: 'Usuário'
       license: 'Licença'
@@ -279,6 +283,13 @@ pt-BR:
         description: 'Descrição'
         url: 'URL'
       text:
+        title: 'Título'
+        abstract: 'Resumo'
+        body: 'Corpo'
+        publish: 'Publicar'
+        firstpage: 'Visível na primeira página'
+        license: 'Licença'
+      image:
         title: 'Título'
         abstract: 'Resumo'
         body: 'Corpo'
@@ -349,6 +360,7 @@ pt-BR:
   'comment': 'comentário'
   'Add Comment': 'Adicionar um comentário'
   'Commented by': 'Comentando por'
+  'This register has dependents': 'Este registro tem dependentes'
   opinio:
     messages:
       no_comments_found: 'Nenhum comentário encontrado'

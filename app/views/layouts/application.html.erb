@@ -2,13 +2,15 @@
 <html>
 <head>
   <title><%= Settings.title %></title>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="texts/rss.rss" />
+  <link rel="icon" type="image/png" href="/images/favicon.ico">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="texts/rss.rss" />
 </head>
 
 <body>
+
   <ul class="tabs">
       <%= render 'layouts/options' %>
   </ul>

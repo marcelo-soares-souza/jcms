@@ -19,6 +19,7 @@ class Image < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "150x150>" }
 
   belongs_to :license
+  validates_existence_of :license, :both => false
 
   has_many :owners, :dependent => :destroy
   has_many :users,  :through   => :owners

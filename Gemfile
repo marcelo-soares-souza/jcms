@@ -6,6 +6,7 @@ gem 'json'
 gem 'execjs'
 gem 'coffee-rails'
 gem 'therubyracer'
+gem 'cocaine' , '~> 0.3.2'
 
 group :assets do
   gem 'sass-rails'
@@ -27,5 +28,5 @@ gem 'progress_bar'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'opinio'
 gem 'settingslogic'
-
-gem "kaminari"
+gem 'kaminari'
+gem 'validates_existence'

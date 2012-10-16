@@ -91,7 +91,7 @@
       <% if (params[:action] == 'edit' && delete == true) || params[:action] != 'edit' %>
         <%= f.submit 'class' => type, :disable_with => I18n.t('Submitting') %>
 
-        <%= link_to t('Delete'), @text, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete if params[:action] == 'edit'%>
+        <%= link_to t('Delete'), @image, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete if params[:action] == 'edit'%>
       <% end %>
     </div>
 

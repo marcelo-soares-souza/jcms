@@ -14,14 +14,14 @@
     <div class="clearfix">
       <%= f.label :title %>
       <div class="input">
-        <%= f.text_field :title %>
+        <%= f.text_field :title, :class => 'span8', :size => '64', :maxlength => '64' %>
       </div>
     </div>
 
     <div class="clearfix">
       <%= f.label :url %>
       <div class="input">
-        <%= f.text_field :url %>
+        <%= f.text_field :url, :class => 'span10', :size => '64', :maxlength => '254' %>
       </div>
     </div>
 
@@ -36,7 +36,7 @@
 
       <%= f.submit 'class' => type, :disable_with => I18n.t('Submitting') %>
 
-        <%= link_to t('Delete'), @text, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete if params[:action] == 'edit'%>
+      <%= link_to t('Delete'), @menu, :class => 'btn danger', :confirm => t('Are you sure?'), :method => :delete if params[:action] == 'edit' %>
     </div>
   </fieldset>
 <% end %>

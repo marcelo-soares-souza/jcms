@@ -1,22 +1,30 @@
+<center>
   <% if !@latests.nil? %>
-    <center>
     <br/><br/><br/>
     <h3> <%= t("Latest News") %></h3>
     <br/>
+    <%= render 'home/texts' %>
+      <% if @latests.size > 0 %>
         <% @latests.each do |text| %>
             <p><%= link_to text.title, text %></p>
             <hr style="width:150px;" />
         <% end %>
-    </center>
+      <% else %>
+        <b><%= t('No Items Registered') %></b>
+      <% end %>
   <% end %>
 
+  <hr/>
+
   <% if !@tags.nil? %>
-    <center>
-    <br/>
     <h3> <%= t("Tags") %></h3>
     <br/>
-    <% tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
-      <%= link_to tag.name, tagged_url(:tag => tag.name), :class => css_class %>      
+    <% if @tags.size > 0 %>
+      <% tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
+        <%= link_to tag.name, tagged_url(:tag => tag.name), :class => css_class %>      
+      <% end %>
+    <% else %>
+      <b><%= t('No Items Registered') %></b>
     <% end %>
-    </center>
   <% end %>
+</center>

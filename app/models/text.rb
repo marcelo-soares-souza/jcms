@@ -21,6 +21,7 @@ class Text < ActiveRecord::Base
   validates :body, :presence => true
 
   belongs_to :license
+  validates_existence_of :license, :both => false
 
   has_many :owners, :dependent => :destroy, :uniq => true
   has_many :users,  :through   => :owners, :uniq => true

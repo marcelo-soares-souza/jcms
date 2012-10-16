@@ -81,7 +81,13 @@ class LicensesController < ApplicationController
   # DELETE /licenses/1.json
   def destroy
     @license = License.find(params[:id])
-    @license.destroy
+
+    begin
+      @license.destroy
+    rescue
+      redirect_to licenses_url, :alert => I18n.t('This register has dependents')
+      return false
+    end
 
     respond_to do |format|
       format.html { redirect_to licenses_url, :notice => 'Successfully deleted' }
