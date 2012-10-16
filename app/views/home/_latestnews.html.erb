@@ -3,7 +3,6 @@
     <br/><br/><br/>
     <h3> <%= t("Latest News") %></h3>
     <br/>
-    <%= render 'home/texts' %>
       <% if @latests.size > 0 %>
         <% @latests.each do |text| %>
             <p><%= link_to text.title, text %></p>

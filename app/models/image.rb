@@ -11,10 +11,8 @@ class Image < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
-  validates :title,    :presence => true,
-                       :length => { :minimum => 4, :maximum => 254 }
-  validates :abstract, :presence => true,
-                       :length => { :minimum => 8, :maximum => 254 }
+  validates :title, :presence => true,
+                    :length => { :minimum => 4, :maximum => 254 }
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "150x150>" }
 

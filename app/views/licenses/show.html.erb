@@ -1,12 +1,12 @@
 <h1><%= t("Licenses") %></h1>
 
 <ul class="tabs" data-tabs="tabs">
-  <li><a href="/licenses"><%= t("List") %></a></li>
+  <li><a href="/licenses"><%= t("All") %></a></li>
     <li class="active"><a href=""><%= @license.name %></a></li>
 </ul>
 
 <div class="tab-content">
   <div class="active tab-pane" id="edit">
-    <%= @license.name %>
+    <a href="<%= @license.url %>"><%= @license.name + ": " + @license.description %></a>
   </div>
 </div>

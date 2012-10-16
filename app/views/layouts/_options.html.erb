@@ -6,11 +6,11 @@
       <li id="texts"><a href="/texts"><%= t("Texts") %></a></li>
       <li id="images"><a href="/images"><%= t("Images") %></a></li>
     <% if user_signed_in? %>
-      <li id="users"><a href="/users"><%= t("Users") %></a></li>
       <li id="licenses"><a href="/licenses"><%= t("Licenses") %></a></li>
       <li id="menus"><a href="/menus"><%= t("Menus") %></a></li>
-      <li id="logout"><%= link_to(t("Logout") + " (" + current_user.firstname + ") ", destroy_user_session_path, :method => :delete) %></li>
+      <li id="users"><a href="/users"><%= t("Users") %></a></li>
+      <li id="logout" style="float: right;"><%= link_to(t("Logout") + " (" + current_user.firstname + ") ", destroy_user_session_path, :method => :delete) %></li>
     <% else %>
-      <li id="login"><%= link_to(t("Login"), new_user_session_path)  %></li>
+      <li id="login" style="float: right;"><%= link_to(t("Login"), new_user_session_path)  %></li>
    <% end %>
 

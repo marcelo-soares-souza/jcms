@@ -1,14 +1,13 @@
 <h1><%= t("Images") %></h1>
 
 <ul class="tabs" data-tabs="tabs">
-  <li><a href="/images"><%= t("List") %></a></li>
+  <li><a href="/images"><%= t("All") %></a></li>
     <li class="active"><a href=""><%= @image.title %></a></li>
 </ul>
 
 <div class="tab-content">
   <div class="active tab-pane" id="edit">
     <b><%= t('Published by') %></b> <% @image.users.each do |user| %> <%= user.firstname + ' ' + user.lastname %> <% end %> <b><%= t('in') %></b> <%= I18n.l(@image.created_at) %>
-    <br/>
     <b><%= t('licensed under') %></b> <%= link_to @image.license.name, @image.license.url %>
     <br/><br/>
     <%= image_tag @image.image.url %>

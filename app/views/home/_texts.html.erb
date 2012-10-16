@@ -9,7 +9,7 @@
           </b> <%= I18n.l(text.created_at) %>
           <b><%= t('licensed under') %></b> <%= link_to text.license.name, text.license.url %>
           <br/>     
-          <b><%= t("Abstract") %>:</b> <%= text.abstract %>   
+          <b><%= t("Abstract") + ":" unless text.abstract.empty? %></b> <%= text.abstract %>   
           <br/>     
           <p></p>
           <%= truncate(text.body, :length => 4096).html_safe %>

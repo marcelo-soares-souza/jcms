@@ -15,9 +15,6 @@ class Text < ActiveRecord::Base
   validates :title,    :presence => true,
                        :length => { :minimum => 4, :maximum => 254 }
 
-  validates :abstract, :presence => true,
-                       :length => { :minimum => 8, :maximum => 254 }
-
   validates :body, :presence => true
 
   belongs_to :license
