@@ -43,8 +43,8 @@ class HomeController < ApplicationController
 
   def tagged
     if params[:tag].present?
-      @texts  = Text.tagged_with(params[:tag])
-      @images = Image.tagged_with(params[:tag])
+      @texts  = Text.tagged_with(params[:tag]).sort_by(&:id).reverse
+      @images = Image.tagged_with(params[:tag]).sort_by(&:id).reverse
     else
       @texts = Text.all
       @images = Image.all
