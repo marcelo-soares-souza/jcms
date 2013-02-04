@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 gem 'pg'
 gem 'json'
 gem 'execjs'
 gem 'coffee-rails'
-gem 'therubyracer'
+gem 'libv8'
+gem 'therubyracer', '0.10.2'
 gem 'cocaine' , '~> 0.3.2'
 
 group :assets do
@@ -13,7 +14,7 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.1.4'
 gem 'paperclip', '2.7.0'
 gem 'warden'
 gem 'bcrypt-ruby'
@@ -30,3 +31,4 @@ gem 'opinio'
 gem 'settingslogic'
 gem 'kaminari'
 gem 'validates_existence'
+gem 'rmagick'
