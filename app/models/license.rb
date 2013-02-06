@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class License < ActiveRecord::Base
   has_many :texts
   has_many :images

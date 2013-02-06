@@ -5,9 +5,11 @@
       <th><%= t("title")%></th>
       <th><%= t("Abstract") %></th>
       <th><%= t("license") %></th>
-      <th><%= t("publish") %></th>
-      <th><%= t("firstpage") %></th>
-      <th><%= t("Owner(s)") %></th>
+      <% if user_signed_in? %>
+        <th><%= t("publish") %></th>
+        <th><%= t("firstpage") %></th>
+        <th><%= t("Owner(s)") %></th>
+      <% end %>
       <th><%= t("Last Update") %></th>
       <th><%= t("Tags") %></th>
     </tr>
@@ -31,10 +33,12 @@
       </td>
       <td><%= text.abstract %></td>
       <td><%= link_to text.license.name, text.license.url %></td>
-      <td><%= t(text.publish) %></td>
-      <td><%= t(text.firstpage) %></td>
-      <% text.users.each do |user| %>
-        <td><%= user.firstname %></td>
+      <% if user_signed_in? %>
+        <td><%= t(text.publish) %></td>
+        <td><%= t(text.firstpage) %></td>
+        <% text.users.each do |user| %>
+          <td><%= user.firstname %></td>
+        <% end %>
       <% end %>
       <td><%= I18n.l(text.updated_at) %></td>
 

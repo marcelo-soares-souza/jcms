@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Image < ActiveRecord::Base
   acts_as_taggable_on :tags
 

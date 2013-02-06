@@ -6,9 +6,11 @@
       <th><%= t("title")%></th>
       <th><%= t("Abstract") %></th>
       <th><%= t("license") %></th>
-      <th><%= t("publish") %></th>
-      <th><%= t("firstpage") %></th>
-      <th><%= t("Owner(s)") %></th>
+      <% if user_signed_in? %>
+        <th><%= t("publish") %></th>
+        <th><%= t("firstpage") %></th>
+        <th><%= t("Owner(s)") %></th>
+      <% end %>
       <th><%= t("Last Update") %></th>
       <th><%= t("Tags") %></th>
     </tr>
@@ -33,10 +35,12 @@
       </td>
       <td><%= image.abstract %></td>
       <td><%= link_to image.license.name, image.license.url %></td>
-      <td><%= t(image.publish) %></td>
-      <td><%= t(image.firstpage) %></td>
-      <% image.users.each do |user| %>
-        <td><%= user.firstname %></td>
+      <% if user_signed_in? %>
+        <td><%= t(image.publish) %></td>
+        <td><%= t(image.firstpage) %></td>
+        <% image.users.each do |user| %>
+          <td><%= user.firstname %></td>
+        <% end %>
       <% end %>
       <td><%= I18n.l(image.updated_at) %></td>
 
